@@ -5,7 +5,7 @@
   "description": "Design-system component library for the SaaS product (Tailwind v4 + Radix + shadcn sources).",
   "license": "MIT",
   "author": "Oscar Ospina",
-  "homepage": "https://github.com/oscar-ospina/packages/tree/main/ui",
+  "homepage": "https://github.com/oscar-ospina/saas-packages/tree/main/ui",
   "sideEffects": [
     "**/*.css"
   ],

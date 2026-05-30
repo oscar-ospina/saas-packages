@@ -1,4 +1,4 @@
-# Contributing to `packages`
+# Contributing to `saas-packages`
 
 This monorepo holds the shared design system for the SaaS product. The first
 package is [`@saas/ui`](./ui) (`ui/`). Planning, epics, and stories live in the

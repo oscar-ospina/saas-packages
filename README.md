@@ -1,4 +1,4 @@
-# packages
+# saas-packages
 
 Monorepo for the SaaS product's shared, code-shipped packages. A polyrepo
 sibling of [`saas-planner`](https://github.com/oscar-ospina/saas-planner)
@@ -29,7 +29,7 @@ npm run check:tokens   # assert theme.css is in sync with tokens.json
 ## Layout
 
 ```
-packages/
+saas-packages/
 ├── ui/                 # @saas/ui — the design system
 │   ├── src/            #   components + generated theme.css
 │   ├── tokens/         #   DTCG tokens.json (Figma-generated source of truth)
