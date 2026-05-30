@@ -19,20 +19,21 @@ audited against the foreground/background pairs the shipped components actually 
 
 ## Results
 
-| Pair (fg on bg)                            | Resolved               | Ratio   | Need | Result                   |
-| ------------------------------------------ | ---------------------- | ------- | ---- | ------------------------ |
-| foreground on background                   | `#363744` on `#f6f6f9` | 10.90:1 | 4.5  | ✅                       |
-| foreground on card/popover (paper)         | `#363744` on `#ffffff` | 11.75:1 | 4.5  | ✅                       |
-| primary-foreground on primary              | `#782516` on `#f8ad79` | 5.42:1  | 4.5  | ✅ (Figma's Button pair) |
-| secondary/accent-foreground on neutral-100 | `#363744` on `#ededf1` | 10.07:1 | 4.5  | ✅                       |
-| muted-foreground on muted                  | `#565973` on `#ededf1` | 5.85:1  | 4.5  | ✅                       |
-| muted-foreground on background             | `#565973` on `#f6f6f9` | 6.34:1  | 4.5  | ✅                       |
-| destructive-foreground on destructive      | `#ffffff` on `#e7000b` | 4.77:1  | 4.5  | ✅                       |
-| destructive **text** on card (paper)       | `#e7000b` on `#ffffff` | 4.77:1  | 4.5  | ✅                       |
-| **destructive text on app background**     | `#e7000b` on `#f6f6f9` | 4.42:1  | 4.5  | ⚠️ **finding**           |
-| ring vs background                         | `#f0601f` on `#f6f6f9` | 3.04:1  | 3.0  | ✅                       |
-| ring vs card                               | `#f0601f` on `#ffffff` | 3.28:1  | 3.0  | ✅                       |
-| **border/input vs background**             | `#d7d8e0` on `#f6f6f9` | 1.32:1  | 3.0  | ⚠️ **finding**           |
+| Pair (fg on bg)                            | Resolved               | Ratio   | Need | Result                    |
+| ------------------------------------------ | ---------------------- | ------- | ---- | ------------------------- |
+| foreground on background                   | `#363744` on `#f6f6f9` | 10.90:1 | 4.5  | ✅                        |
+| foreground on card/popover (paper)         | `#363744` on `#ffffff` | 11.75:1 | 4.5  | ✅                        |
+| primary-foreground on primary              | `#782516` on `#f8ad79` | 5.42:1  | 4.5  | ✅ (Figma's Button pair)  |
+| primary-colored text (Button `link`)       | `#bb3313` on `#f6f6f9` | 5.41:1  | 4.5  | ✅ (orange-700, see note) |
+| secondary/accent-foreground on neutral-100 | `#363744` on `#ededf1` | 10.07:1 | 4.5  | ✅                        |
+| muted-foreground on muted                  | `#565973` on `#ededf1` | 5.85:1  | 4.5  | ✅                        |
+| muted-foreground on background             | `#565973` on `#f6f6f9` | 6.34:1  | 4.5  | ✅                        |
+| destructive-foreground on destructive      | `#ffffff` on `#e7000b` | 4.77:1  | 4.5  | ✅                        |
+| destructive **text** on card (paper)       | `#e7000b` on `#ffffff` | 4.77:1  | 4.5  | ✅                        |
+| **destructive text on app background**     | `#e7000b` on `#f6f6f9` | 4.42:1  | 4.5  | ⚠️ **finding**            |
+| ring vs background                         | `#f0601f` on `#f6f6f9` | 3.04:1  | 3.0  | ✅                        |
+| ring vs card                               | `#f0601f` on `#ffffff` | 3.28:1  | 3.0  | ✅                        |
+| **border/input vs background**             | `#d7d8e0` on `#f6f6f9` | 1.32:1  | 3.0  | ⚠️ **finding**            |
 
 ## Findings & decisions
 
@@ -44,6 +45,12 @@ resolves this itself with **orange-300 `#f8ad79` bg + orange-900 `#782516` text
 (5.42:1)** — so the `primary` _surface_ role uses exactly that pair. The brand hue
 remains as `--color-orange-400` and drives the focus ring (`--color-ring` =
 orange-500, 3.04:1). No invention, no override — this is the design's own answer.
+
+**`--color-primary` is FILL-ONLY.** As a soft wash it's legible only _with_
+`primary-foreground` on it; as standalone text (`text-primary`) it's ~1.9:1. So
+primary-colored **text** (the Button `link` variant) uses **orange-700 `#bb3313`
+(5.41:1 on bg, 5.84:1 on card)**, not `text-primary`. `semantic.css` flags this
+inline so the pale fill is never reused as text.
 
 ### Destructive — faithful Figma red, with one documented finding
 

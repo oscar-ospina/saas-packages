@@ -41,8 +41,11 @@
      it fails AA as a text-bearing surface (white=2.7:1, dark text=3.8:1). The
      Figma Button itself solves this with orange-300 bg + orange-900 text
      (5.42:1), so the primary *surface* role uses exactly that accessible pair.
-     The brand hue lives on in --color-orange-400 and as the focus ring below. */
-  --color-primary: var(--color-orange-300); /* #f8ad79 */
+     The brand hue lives on in --color-orange-400 and as the focus ring below.
+     ⚠️ FILL-ONLY: this is a soft wash, legible only WITH primary-foreground on
+     it. Never use as standalone text (text-primary ≈ 1.9:1). For primary-colored
+     TEXT/links use a darker orange (orange-700 = 5.84:1) — see Button `link`. */
+  --color-primary: var(--color-orange-300); /* #f8ad79 — fill only */
   --color-primary-foreground: var(--color-orange-900); /* #782516 — 5.42:1 */
 
   /* shadcn "secondary"/"accent" = subdued NEUTRAL surfaces (subtle buttons,

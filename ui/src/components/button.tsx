@@ -15,7 +15,10 @@ const buttonVariants = cva(
         outline: "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+        // --color-primary (orange-300) is a soft FILL — legible only with
+        // primary-foreground on it (5.42:1). As standalone link TEXT it's
+        // ~1.9:1, so the link uses a darker brand orange (orange-700 = 5.84:1).
+        link: "text-orange-700 underline-offset-4 hover:underline",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
