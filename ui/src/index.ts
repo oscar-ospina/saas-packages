@@ -29,3 +29,42 @@ export { Input } from "./components/input";
 export { Label } from "./components/label";
 export { Field } from "./components/field";
 export type { FieldProps } from "./components/field";
+
+export { Avatar, AvatarImage, AvatarFallback } from "./components/avatar";
+
+export {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectScrollDownButton,
+  SelectScrollUpButton,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+} from "./components/select";
+
+export {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
+} from "./components/dialog";
+
+export {
+  Toast,
+  ToastAction,
+  ToastClose,
+  ToastDescription,
+  ToastProvider,
+  ToastTitle,
+  ToastViewport,
+  toastVariants,
+} from "./components/toast";
