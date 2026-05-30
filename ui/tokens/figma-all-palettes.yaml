@@ -1,0 +1,2170 @@
+metadata:
+  name: UI Exercise
+  components: {}
+  componentSets: {}
+nodes:
+  - id: 1:692
+    name: All palettes
+    type: FRAME
+    layout: layout_ZOXO1I
+    fills: fill_RUJSPG
+    borderRadius: 0px 0px 16px 16px
+    children:
+      - id: 1:693
+        name: Group
+        type: FRAME
+        layout: layout_3JPE21
+        children:
+          - id: 1:694
+            name: Base
+            type: TEXT
+            layout: layout_IF4DSY
+            text: Base
+            textStyle: style_H0Z7ZJ
+            fills: fill_4XBUTD
+          - id: 1:695
+            name: Swatches
+            type: FRAME
+            layout: layout_FJZZGJ
+            fills: fill_A4KDA6
+            borderRadius: 12px
+            children:
+              - id: 1:696
+                name: Primary palette
+                type: FRAME
+                layout: layout_LVCJS5
+                children:
+                  - id: 1:697
+                    name: Row
+                    type: FRAME
+                    layout: layout_VUWFGN
+                    children:
+                      - id: 1:698
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:699
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_19ZXLB
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:700
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:701
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: Background
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:702
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:703
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_Y7FR30
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:704
+                            name: Label
+                            type: FRAME
+                            layout: layout_48J01B
+                            children:
+                              - id: 1:705
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: Paper
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:706
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:707
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_7LYYFA
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:708
+                            name: Label
+                            type: FRAME
+                            layout: layout_G7AL0R
+                            children:
+                              - id: 1:709
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: Primary
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:710
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_JMWIBQ
+                        children:
+                          - id: 1:711
+                            name: N600
+                            type: FRAME
+                            layout: layout_TOR3U9
+                            children:
+                              - id: 1:712
+                                name: Color Sample
+                                type: FRAME
+                                layout: layout_S9NIQ2
+                                fills: fill_HHTRRX
+                                strokes: fill_ST1S2G
+                                strokeWeight: 1px
+                                borderRadius: 6px
+                              - id: 1:713
+                                name: Label
+                                type: FRAME
+                                layout: layout_N01GU9
+                                children:
+                                  - id: 1:714
+                                    name: Label
+                                    type: TEXT
+                                    layout: layout_IF4DSY
+                                    text: Secondary
+                                    textStyle: style_VBU0UN
+                                    fills: fill_4XBUTD
+      - id: 1:720
+        name: Group
+        type: FRAME
+        layout: layout_3JPE21
+        children:
+          - id: 1:721
+            name: Base / Text
+            type: TEXT
+            layout: layout_IF4DSY
+            text: Base / Text
+            textStyle: style_H0Z7ZJ
+            fills: fill_4XBUTD
+          - id: 1:722
+            name: Swatches
+            type: FRAME
+            layout: layout_PQXXBQ
+            fills: fill_A4KDA6
+            borderRadius: 12px
+            children:
+              - id: 1:723
+                name: Primary palette
+                type: FRAME
+                layout: layout_8N01SH
+                children:
+                  - id: 1:724
+                    name: Row
+                    type: FRAME
+                    layout: layout_7J3414
+                    children:
+                      - id: 1:725
+                        name: Frame 11812286
+                        type: FRAME
+                        layout: layout_JMWIBQ
+                        children:
+                          - id: 1:726
+                            name: Color Card
+                            type: FRAME
+                            layout: layout_RQQJ8Y
+                            children:
+                              - id: 1:727
+                                name: Color Sample
+                                type: FRAME
+                                layout: layout_S9NIQ2
+                                fills: fill_OMZZJL
+                                strokes: fill_ST1S2G
+                                strokeWeight: 1px
+                                borderRadius: 6px
+                              - id: 1:728
+                                name: Label
+                                type: FRAME
+                                layout: layout_0NA59V
+                                children:
+                                  - id: 1:729
+                                    name: Label
+                                    type: TEXT
+                                    layout: layout_IF4DSY
+                                    text: Primary
+                                    textStyle: style_VBU0UN
+                                    fills: fill_4XBUTD
+                          - id: 1:730
+                            name: Color Card
+                            type: FRAME
+                            layout: layout_TOR3U9
+                            children:
+                              - id: 1:731
+                                name: Color Sample
+                                type: FRAME
+                                layout: layout_S9NIQ2
+                                fills: fill_DKTW5W
+                                strokes: fill_ST1S2G
+                                strokeWeight: 1px
+                                borderRadius: 6px
+                              - id: 1:732
+                                name: Label
+                                type: FRAME
+                                layout: layout_PNH1CX
+                                children:
+                                  - id: 1:733
+                                    name: Label
+                                    type: TEXT
+                                    layout: layout_IF4DSY
+                                    text: Secondary
+                                    textStyle: style_VBU0UN
+                                    fills: fill_4XBUTD
+                          - id: 1:734
+                            name: Color Card
+                            type: FRAME
+                            layout: layout_TOR3U9
+                            children:
+                              - id: 1:735
+                                name: Color Sample
+                                type: FRAME
+                                layout: layout_S9NIQ2
+                                fills: fill_GPO9CO
+                                strokes: fill_ST1S2G
+                                strokeWeight: 1px
+                                borderRadius: 6px
+                              - id: 1:736
+                                name: Label
+                                type: FRAME
+                                layout: layout_PNH1CX
+                                children:
+                                  - id: 1:737
+                                    name: Label
+                                    type: TEXT
+                                    layout: layout_IF4DSY
+                                    text: Tertiary
+                                    textStyle: style_VBU0UN
+                                    fills: fill_4XBUTD
+                          - id: 104:1485
+                            name: Color Card
+                            type: FRAME
+                            layout: layout_RQQJ8Y
+                            children:
+                              - id: 104:1486
+                                name: Color Sample
+                                type: FRAME
+                                layout: layout_S9NIQ2
+                                fills: fill_19ZXLB
+                                strokes: fill_ST1S2G
+                                strokeWeight: 1px
+                                borderRadius: 6px
+                              - id: 104:1487
+                                name: Label
+                                type: FRAME
+                                layout: layout_0NA59V
+                                children:
+                                  - id: 104:1488
+                                    name: Label
+                                    type: TEXT
+                                    layout: layout_IF4DSY
+                                    text: contrast.primary
+                                    textStyle: style_VBU0UN
+                                    fills: fill_4XBUTD
+                          - id: 104:1489
+                            name: Color Card
+                            type: FRAME
+                            layout: layout_TOR3U9
+                            children:
+                              - id: 104:1490
+                                name: Color Sample
+                                type: FRAME
+                                layout: layout_S9NIQ2
+                                fills: fill_47BXPW
+                                strokes: fill_ST1S2G
+                                strokeWeight: 1px
+                                borderRadius: 6px
+                              - id: 104:1491
+                                name: Label
+                                type: FRAME
+                                layout: layout_PNH1CX
+                                children:
+                                  - id: 104:1492
+                                    name: Label
+                                    type: TEXT
+                                    layout: layout_IF4DSY
+                                    text: contrast.secondary
+                                    textStyle: style_VBU0UN
+                                    fills: fill_4XBUTD
+                          - id: 104:1493
+                            name: Color Card
+                            type: FRAME
+                            layout: layout_TOR3U9
+                            children:
+                              - id: 104:1494
+                                name: Color Sample
+                                type: FRAME
+                                layout: layout_S9NIQ2
+                                fills: fill_47BXPW
+                                strokes: fill_ST1S2G
+                                strokeWeight: 1px
+                                borderRadius: 6px
+                              - id: 104:1495
+                                name: Label
+                                type: FRAME
+                                layout: layout_PNH1CX
+                                children:
+                                  - id: 104:1496
+                                    name: Label
+                                    type: TEXT
+                                    layout: layout_IF4DSY
+                                    text: contrast.tertiary
+                                    textStyle: style_VBU0UN
+                                    fills: fill_4XBUTD
+      - id: 1:738
+        name: Group
+        type: FRAME
+        layout: layout_3JPE21
+        children:
+          - id: 1:739
+            name: Neutrals
+            type: TEXT
+            layout: layout_IF4DSY
+            text: Neutrals
+            textStyle: style_H0Z7ZJ
+            fills: fill_4XBUTD
+          - id: 1:740
+            name: Swatches
+            type: FRAME
+            layout: layout_NNG3GZ
+            fills: fill_A4KDA6
+            borderRadius: 12px
+            children:
+              - id: 1:741
+                name: Column
+                type: FRAME
+                layout: layout_8N01SH
+                children:
+                  - id: 1:742
+                    name: Row
+                    type: FRAME
+                    layout: layout_JMWIBQ
+                    children:
+                      - id: 1:747
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:748
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_Y7FR30
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:749
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:750
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '50'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:1648
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:1649
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_19ZXLB
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:1650
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:1651
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '50'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:751
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:752
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_677NH2
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:753
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:754
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '100'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:755
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:756
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_RRP6MZ
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:757
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:758
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '200'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:759
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:760
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_O1ET5V
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:761
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:762
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '300'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:763
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:764
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_TIUM2O
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:765
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:766
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '400'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                  - id: 1:767
+                    name: Row
+                    type: FRAME
+                    layout: layout_IHYGKZ
+                    children:
+                      - id: 1:768
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:769
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_J30RKZ
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:770
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:771
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '500'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:772
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:773
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_6JEA19
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:774
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:775
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '600'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:776
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:777
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_R113LW
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:778
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:779
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '700'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:780
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:781
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_1JQU97
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:782
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:783
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '800'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:784
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:785
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_OMZZJL
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:786
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:787
+                                name: Label
+                                type: TEXT
+                                layout: layout_B1S0XP
+                                text: '900'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:788
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:789
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_1GY3LN
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:790
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:791
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '950'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+      - id: 1:792
+        name: Group
+        type: FRAME
+        layout: layout_3JPE21
+        children:
+          - id: 1:793
+            name: Surfaces
+            type: TEXT
+            layout: layout_IF4DSY
+            text: Surfaces
+            textStyle: style_H0Z7ZJ
+            fills: fill_4XBUTD
+          - id: 1:794
+            name: Swatches
+            type: FRAME
+            layout: layout_NNG3GZ
+            fills: fill_A4KDA6
+            borderRadius: 12px
+            children:
+              - id: 1:795
+                name: Column
+                type: FRAME
+                layout: layout_8N01SH
+                children:
+                  - id: 1:796
+                    name: Row
+                    type: FRAME
+                    layout: layout_JMWIBQ
+                    children:
+                      - id: 1:797
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:798
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_AQD7ED
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:799
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:800
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: Surface Bright
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:801
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:802
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_PNT3S4
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:803
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:804
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: Surface 0
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:805
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:806
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_RZ2I43
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:807
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:808
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: Surface 1
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:809
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:810
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_IK7F4F
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:811
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:812
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: Surface 2
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:813
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:814
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_RG4WPS
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:815
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:816
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: Surface 3
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:817
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:818
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_FSYHCG
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:819
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:820
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: Surface 4
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:821
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:822
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_87LVR7
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:823
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:824
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: Surface 5
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+      - id: 1:825
+        name: Group
+        type: FRAME
+        layout: layout_3JPE21
+        children:
+          - id: 1:826
+            name: Orange
+            type: TEXT
+            layout: layout_IF4DSY
+            text: Orange
+            textStyle: style_H0Z7ZJ
+            fills: fill_4XBUTD
+          - id: 1:827
+            name: Swatches
+            type: FRAME
+            layout: layout_NNG3GZ
+            fills: fill_A4KDA6
+            borderRadius: 12px
+            children:
+              - id: 1:828
+                name: Column
+                type: FRAME
+                layout: layout_8N01SH
+                children:
+                  - id: 1:829
+                    name: Row
+                    type: FRAME
+                    layout: layout_JMWIBQ
+                    children:
+                      - id: 1:830
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:831
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_R161JT
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:832
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:833
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '50'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:834
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:835
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_HJ34NA
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:836
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:837
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '100'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:838
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:839
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_QTDBOX
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:840
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:841
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '200'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:842
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:843
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_VVVXHL
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                            children:
+                              - id: 1:848
+                                name: P
+                                type: TEXT
+                                layout: layout_6R2WER
+                                text: P
+                                textStyle: style_HLOW7V
+                                fills: fill_Y7FR30
+                          - id: 1:844
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:845
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '300'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:846
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:847
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_7LYYFA
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:849
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:850
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '400'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                  - id: 1:851
+                    name: Row
+                    type: FRAME
+                    layout: layout_IHYGKZ
+                    children:
+                      - id: 1:852
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:853
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_L0AC09
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:854
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:855
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '500'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:856
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:857
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_ONUD7R
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:858
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:859
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '600'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:860
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:861
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_IGEUPK
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:862
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:863
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '700'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:864
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:865
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_NXUEDI
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:866
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:867
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '800'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:868
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:869
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_OQLCK4
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:870
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:871
+                                name: Label
+                                type: TEXT
+                                layout: layout_B1S0XP
+                                text: '900'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:872
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:873
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_OEX7GH
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:874
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:875
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '950'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+      - id: 1:876
+        name: Group
+        type: FRAME
+        layout: layout_3JPE21
+        children:
+          - id: 1:877
+            name: Violet
+            type: TEXT
+            layout: layout_IF4DSY
+            text: Violet
+            textStyle: style_H0Z7ZJ
+            fills: fill_4XBUTD
+          - id: 1:878
+            name: Swatches
+            type: FRAME
+            layout: layout_NNG3GZ
+            fills: fill_A4KDA6
+            borderRadius: 12px
+            children:
+              - id: 1:879
+                name: Column
+                type: FRAME
+                layout: layout_8N01SH
+                children:
+                  - id: 1:880
+                    name: Row
+                    type: FRAME
+                    layout: layout_JMWIBQ
+                    children:
+                      - id: 1:881
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:882
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_2QCN86
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:883
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:884
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '50'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:885
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:886
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_Y75G1I
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:887
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:888
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '100'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:889
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:890
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_1IR9XM
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:891
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:892
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '200'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:893
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:894
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_ZSID83
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:895
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:896
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '300'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:897
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:898
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_0VQMQ2
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:899
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:900
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '400'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                  - id: 1:901
+                    name: Row
+                    type: FRAME
+                    layout: layout_IHYGKZ
+                    children:
+                      - id: 1:902
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:903
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_HHTRRX
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                            children:
+                              - id: 1:904
+                                name: P
+                                type: TEXT
+                                layout: layout_FMLPDW
+                                text: P
+                                textStyle: style_HLOW7V
+                                fills: fill_Y7FR30
+                          - id: 1:905
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:906
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '500'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:907
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:908
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_T02C6K
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:909
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:910
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '600'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:911
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:912
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_NO3U4E
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:913
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:914
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '700'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:915
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:916
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_F2BGBU
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:917
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:918
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '800'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:919
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:920
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_22ESCI
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:921
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:922
+                                name: Label
+                                type: TEXT
+                                layout: layout_B1S0XP
+                                text: '900'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+                      - id: 1:923
+                        name: Color Card
+                        type: FRAME
+                        layout: layout_TOR3U9
+                        children:
+                          - id: 1:924
+                            name: Color Sample
+                            type: FRAME
+                            layout: layout_S9NIQ2
+                            fills: fill_KMPUZL
+                            strokes: fill_ST1S2G
+                            strokeWeight: 1px
+                            borderRadius: 6px
+                          - id: 1:925
+                            name: Label
+                            type: FRAME
+                            layout: layout_N01GU9
+                            children:
+                              - id: 1:926
+                                name: Label
+                                type: TEXT
+                                layout: layout_IF4DSY
+                                text: '950'
+                                textStyle: style_VBU0UN
+                                fills: fill_4XBUTD
+      - id: 57:545
+        name: Group
+        type: FRAME
+        layout: layout_3JPE21
+        children:
+          - id: 57:546
+            name: Gradient
+            type: TEXT
+            layout: layout_IF4DSY
+            text: Gradient
+            textStyle: style_H0Z7ZJ
+            fills: fill_4XBUTD
+          - id: 57:547
+            name: Swatches
+            type: FRAME
+            layout: layout_WXL8KJ
+            fills: fill_A4KDA6
+            borderRadius: 12px
+            children:
+              - id: 57:548
+                name: Row 1
+                type: FRAME
+                layout: layout_VUWFGN
+                children:
+                  - id: 57:549
+                    name: Color Card
+                    type: FRAME
+                    layout: layout_TOR3U9
+                    children:
+                      - id: 57:550
+                        name: Color Sample
+                        type: FRAME
+                        layout: layout_S9NIQ2
+                        fills: Gradient
+                        strokes: fill_ST1S2G
+                        strokeWeight: 1px
+                        borderRadius: 6px
+                      - id: 57:551
+                        name: Label
+                        type: FRAME
+                        layout: layout_G7AL0R
+                        children:
+                          - id: 57:552
+                            name: Label
+                            type: TEXT
+                            layout: layout_IF4DSY
+                            text: Gradient.primary
+                            textStyle: style_VBU0UN
+                            fills: fill_4XBUTD
+                  - id: 57:553
+                    name: Color Card
+                    type: FRAME
+                    layout: layout_TOR3U9
+      - id: 1:927
+        name: Group
+        type: FRAME
+        layout: layout_3JPE21
+        children:
+          - id: 1:928
+            name: Semantic
+            type: TEXT
+            layout: layout_IF4DSY
+            text: Semantic
+            textStyle: style_H0Z7ZJ
+            fills: fill_4XBUTD
+          - id: 1:929
+            name: Swatches
+            type: FRAME
+            layout: layout_WXL8KJ
+            fills: fill_A4KDA6
+            borderRadius: 12px
+            children:
+              - id: 1:930
+                name: Row 1
+                type: FRAME
+                layout: layout_VUWFGN
+                children:
+                  - id: 1:931
+                    name: Color Card
+                    type: FRAME
+                    layout: layout_TOR3U9
+                    children:
+                      - id: 1:932
+                        name: Color Sample
+                        type: FRAME
+                        layout: layout_S9NIQ2
+                        fills: fill_YZQXY3
+                        strokes: fill_ST1S2G
+                        strokeWeight: 1px
+                        borderRadius: 6px
+                      - id: 1:933
+                        name: Label
+                        type: FRAME
+                        layout: layout_G7AL0R
+                        children:
+                          - id: 1:934
+                            name: Label
+                            type: TEXT
+                            layout: layout_IF4DSY
+                            text: Red
+                            textStyle: style_VBU0UN
+                            fills: fill_4XBUTD
+                  - id: 1:935
+                    name: Color Card
+                    type: FRAME
+                    layout: layout_TOR3U9
+                    children:
+                      - id: 1:936
+                        name: Color Sample
+                        type: FRAME
+                        layout: layout_S9NIQ2
+                        fills: fill_7QJWCI
+                        strokes: fill_ST1S2G
+                        strokeWeight: 1px
+                        borderRadius: 6px
+                      - id: 1:937
+                        name: Label
+                        type: FRAME
+                        layout: layout_G7AL0R
+                        children:
+                          - id: 1:938
+                            name: Label
+                            type: TEXT
+                            layout: layout_IF4DSY
+                            text: Light Red
+                            textStyle: style_VBU0UN
+                            fills: fill_4XBUTD
+                  - id: 1:939
+                    name: Color Card
+                    type: FRAME
+                    layout: layout_TOR3U9
+                    children:
+                      - id: 1:940
+                        name: Color Sample
+                        type: FRAME
+                        layout: layout_S9NIQ2
+                        fills: fill_MZ58U5
+                        strokes: fill_ST1S2G
+                        strokeWeight: 1px
+                        borderRadius: 6px
+                      - id: 1:941
+                        name: Label
+                        type: FRAME
+                        layout: layout_G7AL0R
+                        children:
+                          - id: 1:942
+                            name: Label
+                            type: TEXT
+                            layout: layout_IF4DSY
+                            text: Green
+                            textStyle: style_VBU0UN
+                            fills: fill_4XBUTD
+                  - id: 1:943
+                    name: Color Card
+                    type: FRAME
+                    layout: layout_TOR3U9
+                    children:
+                      - id: 1:944
+                        name: Color Sample
+                        type: FRAME
+                        layout: layout_S9NIQ2
+                        fills: fill_VJRU5R
+                        strokes: fill_ST1S2G
+                        strokeWeight: 1px
+                        borderRadius: 6px
+                      - id: 1:945
+                        name: Label
+                        type: FRAME
+                        layout: layout_G7AL0R
+                        children:
+                          - id: 1:946
+                            name: Label
+                            type: TEXT
+                            layout: layout_IF4DSY
+                            text: Light green
+                            textStyle: style_VBU0UN
+                            fills: fill_4XBUTD
+                  - id: 1:947
+                    name: Color Card
+                    type: FRAME
+                    layout: layout_TOR3U9
+                    children:
+                      - id: 1:948
+                        name: Color Sample
+                        type: FRAME
+                        layout: layout_S9NIQ2
+                        fills: fill_KRE0YN
+                        strokes: fill_ST1S2G
+                        strokeWeight: 1px
+                        borderRadius: 6px
+                      - id: 1:949
+                        name: Label
+                        type: FRAME
+                        layout: layout_G7AL0R
+                        children:
+                          - id: 1:950
+                            name: Label
+                            type: TEXT
+                            layout: layout_IF4DSY
+                            text: blue
+                            textStyle: style_VBU0UN
+                            fills: fill_4XBUTD
+                  - id: 1:951
+                    name: Color Card
+                    type: FRAME
+                    layout: layout_TOR3U9
+                    children:
+                      - id: 1:952
+                        name: Color Sample
+                        type: FRAME
+                        layout: layout_S9NIQ2
+                        fills: fill_T9YNWS
+                        strokes: fill_ST1S2G
+                        strokeWeight: 1px
+                        borderRadius: 6px
+                      - id: 1:953
+                        name: Label
+                        type: FRAME
+                        layout: layout_G7AL0R
+                        children:
+                          - id: 1:954
+                            name: Label
+                            type: TEXT
+                            layout: layout_IF4DSY
+                            text: Light blue
+                            textStyle: style_VBU0UN
+                            fills: fill_4XBUTD
+                  - id: 1:955
+                    name: Color Card
+                    type: FRAME
+                    layout: layout_TOR3U9
+                    children:
+                      - id: 1:956
+                        name: Color Sample
+                        type: FRAME
+                        layout: layout_S9NIQ2
+                        fills: fill_O8ECK9
+                        strokes: fill_ST1S2G
+                        strokeWeight: 1px
+                        borderRadius: 6px
+                      - id: 1:957
+                        name: Label
+                        type: FRAME
+                        layout: layout_G7AL0R
+                        children:
+                          - id: 1:958
+                            name: Label
+                            type: TEXT
+                            layout: layout_IF4DSY
+                            text: Yellow
+                            textStyle: style_VBU0UN
+                            fills: fill_4XBUTD
+                  - id: 1:959
+                    name: Color Card
+                    type: FRAME
+                    layout: layout_TOR3U9
+                    children:
+                      - id: 1:960
+                        name: Color Sample
+                        type: FRAME
+                        layout: layout_S9NIQ2
+                        fills: fill_FPZNXA
+                        strokes: fill_ST1S2G
+                        strokeWeight: 1px
+                        borderRadius: 6px
+                      - id: 1:961
+                        name: Label
+                        type: FRAME
+                        layout: layout_G7AL0R
+                        children:
+                          - id: 1:962
+                            name: Label
+                            type: TEXT
+                            layout: layout_IF4DSY
+                            text: Light yellow
+                            textStyle: style_VBU0UN
+                            fills: fill_4XBUTD
+      - id: 1:963
+        name: Group
+        type: FRAME
+        layout: layout_3JPE21
+        children:
+          - id: 1:964
+            name: Effects
+            type: TEXT
+            layout: layout_IF4DSY
+            text: Effects
+            textStyle: style_H0Z7ZJ
+            fills: fill_4XBUTD
+          - id: 1:965
+            name: Swatches
+            type: FRAME
+            layout: layout_WXL8KJ
+            fills: fill_A4KDA6
+            borderRadius: 12px
+            children:
+              - id: 1:966
+                name: Ellipse 1
+                type: ELLIPSE
+                layout: layout_B6F3KE
+                fills: fill_OJKDRA
+              - id: 1:967
+                name: Row 1
+                type: FRAME
+                layout: layout_VUWFGN
+                fills: fill_AQD7ED
+                effects: effect_Q7K36G
+                children:
+                  - id: 1:968
+                    name: Color Card
+                    type: FRAME
+                    layout: layout_TOR3U9
+                    children:
+                      - id: 1:969
+                        name: Color Sample
+                        type: FRAME
+                        layout: layout_S9NIQ2
+                        borderRadius: 6px
+                      - id: 1:970
+                        name: Label
+                        type: FRAME
+                        layout: layout_G7AL0R
+                        children:
+                          - id: 1:971
+                            name: Label
+                            type: TEXT
+                            layout: layout_IF4DSY
+                            text: Blur
+                            textStyle: style_VBU0UN
+                            fills: fill_4XBUTD
+globalVars:
+  styles:
+    layout_ZOXO1I:
+      mode: column
+      alignItems: stretch
+      gap: 42px
+      padding: 40px
+      sizing:
+        horizontal: fixed
+        vertical: hug
+      dimensions:
+        width: 1455
+    fill_RUJSPG:
+      - rgba(39, 47, 78, 0.01)
+    layout_3JPE21:
+      mode: column
+      alignSelf: stretch
+      gap: 16px
+      sizing:
+        horizontal: fill
+        vertical: hug
+    layout_IF4DSY:
+      mode: none
+      sizing:
+        horizontal: hug
+        vertical: hug
+    style_H0Z7ZJ:
+      fontFamily: Figtree
+      fontStyle: Bold
+      fontWeight: 700
+      fontSize: 24
+      textAlignHorizontal: LEFT
+      textAlignVertical: CENTER
+    fill_4XBUTD:
+      - '#22252F'
+    layout_FJZZGJ:
+      mode: row
+      alignSelf: stretch
+      gap: 37px
+      padding: 40px 24px
+      sizing:
+        horizontal: fill
+        vertical: hug
+    fill_A4KDA6:
+      - '#FCFCFD'
+    layout_LVCJS5:
+      mode: row
+      gap: 16px
+      sizing:
+        horizontal: hug
+        vertical: hug
+    layout_VUWFGN:
+      mode: row
+      justifyContent: flex-end
+      gap: 24px
+      sizing:
+        horizontal: hug
+        vertical: hug
+    layout_TOR3U9:
+      mode: column
+      gap: 8px
+      sizing:
+        horizontal: hug
+        vertical: hug
+    layout_S9NIQ2:
+      mode: none
+      sizing:
+        horizontal: fixed
+        vertical: fixed
+      dimensions:
+        width: 136
+        height: 72
+    fill_19ZXLB:
+      - '#F6F6F9'
+    fill_ST1S2G:
+      - rgba(39, 47, 78, 0.28)
+    layout_N01GU9:
+      mode: row
+      justifyContent: space-between
+      alignSelf: stretch
+      sizing:
+        horizontal: fill
+        vertical: hug
+    style_VBU0UN:
+      fontFamily: Red Hat Text
+      fontStyle: Medium
+      fontWeight: 500
+      fontSize: 12
+      lineHeight: 140%
+      textAlignHorizontal: LEFT
+      textAlignVertical: TOP
+    fill_Y7FR30:
+      - '#FFFFFF'
+    layout_48J01B:
+      mode: row
+      justifyContent: space-between
+      alignItems: center
+      alignSelf: stretch
+      sizing:
+        horizontal: fill
+        vertical: hug
+    fill_7LYYFA:
+      - '#F37D3E'
+    layout_G7AL0R:
+      mode: row
+      justifyContent: space-between
+      sizing:
+        horizontal: fixed
+        vertical: hug
+      dimensions:
+        width: 136
+    layout_JMWIBQ:
+      mode: row
+      gap: 24px
+      sizing:
+        horizontal: hug
+        vertical: hug
+    fill_HHTRRX:
+      - '#7F5AF8'
+    layout_PQXXBQ:
+      mode: column
+      alignSelf: stretch
+      gap: 140px
+      padding: 40px 24px
+      sizing:
+        horizontal: fill
+        vertical: hug
+    layout_8N01SH:
+      mode: column
+      gap: 32px
+      sizing:
+        horizontal: hug
+        vertical: hug
+    layout_7J3414:
+      mode: row
+      gap: 46px
+      sizing:
+        horizontal: hug
+        vertical: hug
+    layout_RQQJ8Y:
+      mode: column
+      alignItems: center
+      gap: 8px
+      sizing:
+        horizontal: hug
+        vertical: hug
+    fill_OMZZJL:
+      - '#363744'
+    layout_0NA59V:
+      mode: column
+      justifyContent: center
+      alignItems: center
+      alignSelf: stretch
+      sizing:
+        horizontal: fill
+        vertical: fixed
+      dimensions:
+        height: 17
+    fill_DKTW5W:
+      - rgba(54, 55, 68, 0.6)
+    layout_PNH1CX:
+      mode: column
+      justifyContent: center
+      alignItems: center
+      sizing:
+        horizontal: fixed
+        vertical: fixed
+      dimensions:
+        width: 136
+        height: 17
+    fill_GPO9CO:
+      - rgba(54, 55, 68, 0.3)
+    fill_47BXPW:
+      - rgba(246, 246, 249, 0.3)
+    layout_NNG3GZ:
+      mode: column
+      alignSelf: stretch
+      gap: 32px
+      padding: 40px 24px
+      sizing:
+        horizontal: fill
+        vertical: hug
+    fill_677NH2:
+      - '#EDEDF1'
+    fill_RRP6MZ:
+      - '#D7D8E0'
+    fill_O1ET5V:
+      - '#B3B5C6'
+    fill_TIUM2O:
+      - '#8A8EA6'
+    layout_IHYGKZ:
+      mode: row
+      justifyContent: flex-end
+      alignSelf: stretch
+      gap: 24px
+      sizing:
+        horizontal: fill
+        vertical: hug
+    fill_J30RKZ:
+      - '#666A85'
+    fill_6JEA19:
+      - '#565973'
+    fill_R113LW:
+      - '#46485E'
+    fill_1JQU97:
+      - '#3D3F4F'
+    layout_B1S0XP:
+      mode: none
+      sizing:
+        horizontal: fixed
+        vertical: hug
+      dimensions:
+        width: 34
+    fill_1GY3LN:
+      - '#24242D'
+    fill_AQD7ED:
+      - rgba(255, 255, 255, 0.5)
+    fill_PNT3S4:
+      - rgba(138, 142, 166, 0)
+    fill_RZ2I43:
+      - rgba(138, 142, 166, 0.04)
+    fill_IK7F4F:
+      - rgba(138, 142, 166, 0.08)
+    fill_RG4WPS:
+      - rgba(138, 142, 166, 0.16)
+    fill_FSYHCG:
+      - rgba(138, 142, 166, 0.32)
+    fill_87LVR7:
+      - rgba(138, 142, 166, 0.48)
+    fill_R161JT:
+      - '#FEF5EE'
+    fill_HJ34NA:
+      - '#FDE9D7'
+    fill_QTDBOX:
+      - '#FBCFAD'
+    fill_VVVXHL:
+      - '#F8AD79'
+    layout_6R2WER:
+      mode: none
+      sizing: {}
+      locationRelativeToParent:
+        x: 59
+        y: 19
+      dimensions:
+        width: 18
+        height: 34
+    style_HLOW7V:
+      fontFamily: Red Hat Text
+      fontStyle: Bold
+      fontWeight: 700
+      fontSize: 24
+      lineHeight: 140%
+      textAlignHorizontal: LEFT
+      textAlignVertical: TOP
+    fill_L0AC09:
+      - '#F0601F'
+    fill_ONUD7R:
+      - '#E14615'
+    fill_IGEUPK:
+      - '#BB3313'
+    fill_NXUEDI:
+      - '#952A17'
+    fill_OQLCK4:
+      - '#782516'
+    fill_OEX7GH:
+      - '#410F09'
+    fill_2QCN86:
+      - '#F4F3FF'
+    fill_Y75G1I:
+      - '#EBE9FE'
+    fill_1IR9XM:
+      - '#DAD5FF'
+    fill_ZSID83:
+      - '#BEB4FE'
+    fill_0VQMQ2:
+      - '#9E8AFB'
+    layout_FMLPDW:
+      mode: none
+      sizing: {}
+      locationRelativeToParent:
+        x: 59
+        y: 23
+      dimensions:
+        width: 18
+        height: 34
+    fill_T02C6K:
+      - '#7541F0'
+    fill_NO3U4E:
+      - '#6026DB'
+    fill_F2BGBU:
+      - '#501FB8'
+    fill_22ESCI:
+      - '#431B97'
+    fill_KMPUZL:
+      - '#280F66'
+    layout_WXL8KJ:
+      mode: row
+      alignSelf: stretch
+      gap: 140px
+      padding: 24px
+      sizing:
+        horizontal: fill
+        vertical: hug
+    Gradient:
+      - type: GRADIENT_LINEAR
+        gradient: linear-gradient(225deg, rgba(225, 70, 21, 1) 0%, rgba(248, 173, 121, 1) 100%)
+    fill_YZQXY3:
+      - '#E7000B'
+    fill_7QJWCI:
+      - '#FEF2F2'
+    fill_MZ58U5:
+      - '#009966'
+    fill_VJRU5R:
+      - '#ECFDF5'
+    fill_KRE0YN:
+      - '#155DFC'
+    fill_T9YNWS:
+      - '#EFF6FF'
+    fill_O8ECK9:
+      - '#E17100'
+    fill_FPZNXA:
+      - '#FFFBEB'
+    layout_B6F3KE:
+      mode: none
+      sizing:
+        horizontal: fixed
+        vertical: fixed
+      position: absolute
+      locationRelativeToParent:
+        x: 117
+        y: 38
+      dimensions:
+        width: 80
+        height: 80
+    fill_OJKDRA:
+      - '#D7DDE0'
+    effect_Q7K36G:
+      backdropFilter: blur(10px)

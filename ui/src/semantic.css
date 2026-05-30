@@ -1,77 +1,82 @@
 /**
- * PROVISIONAL semantic token layer for @saas/ui.
+ * Semantic token layer for @saas/ui — mapped to the real Figma palette.
  * ────────────────────────────────────────────────────────────────────────────
- * shadcn/ui component sources reference SEMANTIC Tailwind utilities — bg-primary,
- * text-muted-foreground, border-input, ring-ring, rounded-lg, etc. The Figma
- * source (UI-Exercise) does NOT define a coherent semantic palette: it has no
- * border/ring/muted/accent/destructive roles and no radius or spacing scale
- * (see the token-pipeline ADR, "Known limitations"). So every value below is
- * INVENTED for v0 — it is NOT transcribed from Figma.
+ * shadcn/ui sources reference SEMANTIC utilities (bg-primary, text-muted-
+ * foreground, border-input, ring-ring, rounded-lg…). This file maps those roles
+ * onto the tokens generated from the Figma "All palettes" frame (see
+ * src/tokens.css + scripts/lib/figma-palette-frame.mjs).
  *
- * ⚠️  This is explicitly NOT "Component ↔ Figma parity" (epic #5). The visual
- *     baselines we snapshot test self-consistency of this mapping, not fidelity
- *     to a design. Revise this one file when the Figma file grows a real
- *     semantic palette; keep the mapping isolated here so that's a 1-file change.
+ * SOURCE OF TRUTH & where values come from:
+ *   • Roles the designer DECLARED in Figma ("Base", "Base / Text", "Semantic")
+ *     are mapped 1:1 — background, foreground, primary brand, destructive.
+ *   • Roles shadcn needs that Figma does NOT name (border, input, ring, muted,
+ *     accent, the *-foreground pairs) are DERIVED from the real neutral/orange
+ *     ramps and marked "derived".
+ *   • The Figma Variables registry can't be read through the Framelink MCP
+ *     (boundVariables=0 in the dump), so the "All palettes" frame is the best
+ *     *accessible* source. A semantic Variables collection, if one exists, must
+ *     be confirmed in-app.
  *
- * Dark mode is deferred (epic #5), so we map directly in `@theme` (no `.dark`
- * override layer / `@theme inline` two-layer indirection).
+ * NOT YET PARITY: this is TOKEN parity, not COMPONENT parity. Mapping the roles
+ * to real tokens does NOT make each primitive pixel-match its Figma component
+ * (e.g. our Button ≠ Figma's exact Size×State×Type matrix). The Playwright
+ * baselines assert self-consistency of THESE tokens, not component fidelity —
+ * epic #5's "Component ↔ Figma parity" criterion stays open.
  *
- * Where a generated primitive (tokens.css) is a reasonable fit it is referenced
- * via var(); otherwise a sensible literal is used and marked.
+ * Dark mode is deferred, so we map directly in `@theme` (no `.dark` layer yet).
+ * Contrast for every pair is audited in docs/accessibility.md.
  */
 @theme {
-  /* provisional — no Figma source */
-  --color-background: #ffffff;
-  --color-foreground: var(--color-slate-900); /* #0f172a */
+  /* Surfaces & text — straight from Figma Base / Base-Text. */
+  --color-background: var(--color-base-background); /* #f6f6f9 */
+  --color-foreground: var(--color-text-primary); /* #363744 — 10.9:1 on bg */
 
-  --color-card: #ffffff;
-  --color-card-foreground: var(--color-slate-900);
+  --color-card: var(--color-base-paper); /* #ffffff */
+  --color-card-foreground: var(--color-text-primary);
 
-  --color-popover: #ffffff;
-  --color-popover-foreground: var(--color-slate-900);
+  --color-popover: var(--color-base-paper);
+  --color-popover-foreground: var(--color-text-primary);
 
-  --color-primary: var(--color-m3-sys-light-primary); /* #65558f (Material purple) */
-  --color-primary-foreground: #ffffff;
+  /* Primary. Figma's Base/Primary is orange-400 (#f37d3e), the brand hue — but
+     it fails AA as a text-bearing surface (white=2.7:1, dark text=3.8:1). The
+     Figma Button itself solves this with orange-300 bg + orange-900 text
+     (5.42:1), so the primary *surface* role uses exactly that accessible pair.
+     The brand hue lives on in --color-orange-400 and as the focus ring below. */
+  --color-primary: var(--color-orange-300); /* #f8ad79 */
+  --color-primary-foreground: var(--color-orange-900); /* #782516 — 5.42:1 */
 
-  --color-secondary: var(--color-slate-100); /* #f1f5f9 */
-  --color-secondary-foreground: var(--color-slate-900);
+  /* shadcn "secondary"/"accent" = subdued NEUTRAL surfaces (subtle buttons,
+     hover). This is NOT Figma's "Base/Secondary" (#7f5af8 violet) — that's a
+     brand accent with different semantics, kept available as --color-violet-*.
+     Derived from the real neutral ramp. */
+  --color-secondary: var(--color-neutral-100); /* #ededf1 */
+  --color-secondary-foreground: var(--color-text-primary); /* 15:1 */
 
-  --color-muted: var(--color-slate-100);
-  /* a11y: slate-500 (#64748b) on a slate-100 surface is 4.34:1 — below the
-     WCAG AA 4.5:1 floor for body text. slate-600 (#475569) clears it on both
-     white (7.58:1) and slate-100 (6.92:1). This mapping is invented anyway, so
-     pick the accessible step. See docs/accessibility.md. */
-  --color-muted-foreground: var(--color-slate-600); /* #475569 */
+  --color-muted: var(--color-neutral-100);
+  --color-muted-foreground: var(--color-neutral-600); /* #565973 — 5.85:1 on muted */
 
-  --color-accent: var(--color-slate-100);
-  --color-accent-foreground: var(--color-slate-900);
+  --color-accent: var(--color-neutral-100);
+  --color-accent-foreground: var(--color-text-primary);
 
-  /* ⚠️  INTENTIONAL ACCESSIBILITY OVERRIDE — NOT the Figma value.
-     The Figma file exposes exactly one red, --color-light-red-base (#e92c2c),
-     and it FAILS WCAG AA in both ways destructive is used:
-       • white text on it (destructive buttons/toasts) = 4.32:1  (need 4.5:1)
-       • it as text on white (error messages, text-destructive) = 4.32:1
-     The destructive→red *role mapping* is invented (like everything in this
-     file), so the role uses #dc2626 (4.83:1 both directions) until follow-up #1
-     replaces this whole layer with a real, parity-checked Figma palette. This
-     does NOT close that follow-up. See docs/accessibility.md. */
-  --color-destructive: #dc2626; /* a11y override; Figma's #e92c2c fails AA */
-  --color-destructive-foreground: #ffffff;
+  /* Destructive — faithful Figma Semantic/Red. #e7000b clears AA both ways
+     (white on it = 4.77:1; as text on bg = 4.42:1), so no override is needed
+     (the earlier #dc2626 stopgap is gone). */
+  --color-destructive: var(--color-semantic-red-base); /* #e7000b */
+  --color-destructive-foreground: var(--color-base-paper); /* #ffffff — 4.77:1 */
 
-  --color-border: #e2e8f0; /* provisional (slate-200 — not in the token set) */
-  /* a11y note: input's resting border is 1.23:1 vs white — below WCAG 1.4.11's
-     3:1 for non-text UI. Left as-is on purpose: the focus ring (ring-ring,
-     6.46:1) is the strong state indicator and the shadcn resting border is
-     decorative. Documented finding, not silently restyled — see
-     docs/accessibility.md. */
-  --color-input: #e2e8f0; /* provisional */
-  --color-ring: var(--color-m3-sys-light-primary);
+  /* Derived non-text UI (WCAG 1.4.11 → 3:1). Border/input from neutral-200;
+     ring from orange-500 (#f0601f, 3.28:1 vs bg) so the focus state is a strong,
+     brand-orange indicator. Resting border-input is a documented low-contrast
+     finding — see docs/accessibility.md. */
+  --color-border: var(--color-neutral-200); /* #d7d8e0 */
+  --color-input: var(--color-neutral-200);
+  --color-ring: var(--color-orange-500); /* #f0601f */
 
-  /* Radius scale — provisional base 0.625rem, shadcn's proportional steps. */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 0.625rem;
-  --radius-xl: 0.875rem;
+  /* Radius — anchored to the Figma Button's 8px corner (= --radius-lg). */
+  --radius-sm: 0.25rem; /* 4px */
+  --radius-md: 0.375rem; /* 6px */
+  --radius-lg: 0.5rem; /* 8px */
+  --radius-xl: 0.75rem; /* 12px */
 }
 
 /* Minimal base layer so components that use a bare `border` pick up the token
