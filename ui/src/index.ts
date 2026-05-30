@@ -8,3 +8,6 @@
 
 export { cn } from "./lib/cn";
 export type { ClassValue } from "clsx";
+
+export { Button, buttonVariants } from "./components/button";
+export type { ButtonProps } from "./components/button";
