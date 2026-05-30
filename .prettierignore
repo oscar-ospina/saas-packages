@@ -1,0 +1,10 @@
+# Build output / vendored
+**/dist/**
+**/storybook-static/**
+**/coverage/**
+**/node_modules/**
+**/CHANGELOG.md
+
+# Generated token artifacts — DO NOT reformat (byte-for-byte parity is asserted in CI)
+ui/src/theme.css
+ui/tokens/tokens.json

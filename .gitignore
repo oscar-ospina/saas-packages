@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# Storybook
+storybook-static/
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+.playwright/
+
+# Test coverage
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Local Figma dumps (token pipeline input — not committed)
+*.figma.json
+ui-exercise.json
