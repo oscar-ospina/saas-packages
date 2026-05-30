@@ -31,11 +31,13 @@ jobs:
       - name: Lint
         run: npm run lint
 
+      # Build first: it emits @saas/ui's dist/*.d.mts, which the example app's
+      # typecheck resolves via the package "exports" map.
+      - name: Build
+        run: npm run build
+
       - name: Typecheck
         run: npm run typecheck
 
       - name: Unit tests
         run: npm test
-
-      - name: Build
-        run: npm run build
