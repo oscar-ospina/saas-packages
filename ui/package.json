@@ -39,7 +39,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "test:visual": "playwright test",
+    "test:visual:update": "playwright test --update-snapshots"
   },
   "peerDependencies": {
     "react": "^18 || ^19",
@@ -69,6 +71,7 @@
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^6.0.2",
     "@vitest/coverage-v8": "^4.1.7",
+    "http-server": "^14.1.1",
     "jsdom": "^29.1.1",
     "react": "^19",
     "react-dom": "^19",

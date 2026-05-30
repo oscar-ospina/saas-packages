@@ -1,0 +1,36 @@
+name: Visual regression
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# Runs inside the official Playwright container so the browser + font stack is
+# pinned and deterministic. The committed baselines must be generated in this
+# same environment — if they were made elsewhere (e.g. a local Linux box with a
+# different font package set), run `npm run test:visual:update --workspace=@saas/ui`
+# here once (workflow_dispatch) and commit the refreshed snapshots.
+jobs:
+  visual:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.60.0-noble
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install
+        run: npm ci
+
+      - name: Build Storybook
+        run: npm run build-storybook --workspace=@saas/ui
+
+      - name: Visual regression
+        run: npm run test:visual --workspace=@saas/ui
+
+      - name: Upload diff report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: ui/playwright-report/
+          retention-days: 7
