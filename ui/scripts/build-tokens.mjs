@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Full token pipeline: Figma file dump -> DTCG tokens.json + Tailwind v4 theme.css.
+// Full token pipeline: Figma file dump -> DTCG tokens.json + Tailwind v4 tokens.css.
 //
 //   # 1. Fetch the Figma file (needs FIGMA_API_KEY + the file key)
 //   curl -H "X-Figma-Token: $FIGMA_API_KEY" \
@@ -8,9 +8,9 @@
 //   # 2. Transform
 //   node scripts/build-tokens.mjs figma-dump.json .
 //
-// Writes tokens/tokens.json and src/theme.css under <out-dir> (default: package
+// Writes tokens/tokens.json and src/tokens.css under <out-dir> (default: package
 // root). This is the half that needs the Figma source; CI uses build-theme.mjs
-// (offline) to regenerate just theme.css from the committed tokens.json.
+// (offline) to regenerate just tokens.css from the committed tokens.json.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -31,7 +31,7 @@ const file = JSON.parse(fs.readFileSync(inPath, "utf8"));
 const { dtcg, stats } = figmaToDtcg(file);
 
 const tokensPath = path.join(outDir, "tokens", "tokens.json");
-const themePath = path.join(outDir, "src", "theme.css");
+const themePath = path.join(outDir, "src", "tokens.css");
 
 fs.mkdirSync(path.dirname(tokensPath), { recursive: true });
 fs.mkdirSync(path.dirname(themePath), { recursive: true });

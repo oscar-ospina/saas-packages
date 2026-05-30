@@ -50,16 +50,22 @@ failure mode (v4 classes get purged/misread under v3). Pin `tailwindcss@^4`.
 
 ## Design tokens
 
-Tokens are generated from the Figma file `UI-Exercise` and committed as:
+Tokens are generated from the Figma file `UI-Exercise`. The `./theme.css` export
+composes three files:
 
 - `tokens/tokens.json` — W3C DTCG source of truth (also exported as
   `@saas/ui/tokens.json` for non-CSS / cross-platform consumers).
-- `src/theme.css` — generated Tailwind v4 `@theme` block (the `./theme.css`
-  export). **Do not edit by hand.**
+- `src/tokens.css` — **generated** Tailwind v4 `@theme` block of Figma primitives.
+  **Do not edit by hand.**
+- `src/semantic.css` — hand-authored, **provisional** semantic tokens
+  (`--color-primary`, `--color-border`, `--radius-*`) the components reference.
+  The Figma file lacks a coherent semantic palette, so these are invented for v0
+  — **not Figma parity**. See [`CONTRIBUTING.md`](../CONTRIBUTING.md).
+- `src/theme.css` — the entry; `@import`s `tw-animate-css` + the two above.
 
 ```bash
-npm run build:tokens   # regenerate theme.css from tokens.json
-npm run check:tokens   # CI: fail if theme.css drifted from tokens.json
+npm run build:tokens   # regenerate tokens.css from tokens.json
+npm run check:tokens   # CI: fail if tokens.css drifted from tokens.json
 ```
 
 To refresh from Figma, see the repo [`CONTRIBUTING.md`](../CONTRIBUTING.md).

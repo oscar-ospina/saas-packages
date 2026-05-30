@@ -1,12 +1,14 @@
 #!/usr/bin/env node
-// Offline half of the token pipeline: DTCG tokens.json -> Tailwind v4 theme.css.
+// Offline half of the token pipeline: DTCG tokens.json -> Tailwind v4 tokens.css
+// (the generated primitive @theme block; the hand-authored src/theme.css entry
+// imports it alongside the semantic layer).
 //
-//   node scripts/build-theme.mjs                 # tokens/tokens.json -> src/theme.css
-//   node scripts/build-theme.mjs --check         # fail (exit 1) if src/theme.css is stale
+//   node scripts/build-theme.mjs                 # tokens/tokens.json -> src/tokens.css
+//   node scripts/build-theme.mjs --check         # fail (exit 1) if src/tokens.css is stale
 //   node scripts/build-theme.mjs <in.json> <out.css>
 //
 // Runs with no network and no Figma token, so CI can use --check to guard
-// against drift between the committed tokens.json and theme.css.
+// against drift between the committed tokens.json and tokens.css.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -21,7 +23,7 @@ const check = argv.includes("--check");
 const positional = argv.filter((a) => !a.startsWith("--"));
 
 const inPath = positional[0] ?? path.join(pkgRoot, "tokens", "tokens.json");
-const outPath = positional[1] ?? path.join(pkgRoot, "src", "theme.css");
+const outPath = positional[1] ?? path.join(pkgRoot, "src", "tokens.css");
 
 const dtcg = JSON.parse(fs.readFileSync(inPath, "utf8"));
 const css = dtcgToCss(dtcg);

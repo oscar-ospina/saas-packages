@@ -7,10 +7,10 @@ import { dtcgToCss } from "./dtcg-to-css.mjs";
 
 const pkgRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const tokens = JSON.parse(fs.readFileSync(path.join(pkgRoot, "tokens", "tokens.json"), "utf8"));
-const themeCss = fs.readFileSync(path.join(pkgRoot, "src", "theme.css"), "utf8");
+const themeCss = fs.readFileSync(path.join(pkgRoot, "src", "tokens.css"), "utf8");
 
-describe("token pipeline (DTCG → Tailwind v4 theme.css)", () => {
-  it("regenerates src/theme.css byte-for-byte from tokens.json", () => {
+describe("token pipeline (DTCG → Tailwind v4 tokens.css)", () => {
+  it("regenerates src/tokens.css byte-for-byte from tokens.json", () => {
     // Guards against committing a tokens.json change without regenerating the CSS.
     expect(dtcgToCss(tokens)).toBe(themeCss);
   });

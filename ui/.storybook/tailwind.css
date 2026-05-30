@@ -1,0 +1,15 @@
+/* DEV-ONLY Tailwind entry for Storybook. NEVER published.
+ *
+ * Inside our own Storybook, WE are the "consumer", so here we DO import the
+ * framework and @source our own SOURCE (../src), not node_modules — Storybook
+ * builds @saas/ui from source. (Shipped consumers instead @source the installed
+ * package; see the package README.) */
+@import "tailwindcss";
+@import "../src/theme.css";
+@source "../src";
+
+/* Give story canvases a clean surface. Dev-only; not part of the shipped theme. */
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}

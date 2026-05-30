@@ -24,14 +24,23 @@ the Figma file `UI-Exercise` (key `i4WmV5Gfk9uivVQXC5NY8j`). The pipeline (see
 [token-pipeline ADR](https://github.com/oscar-ospina/saas-planner/blob/main/docs/superpowers/specs/2026-05-27-ds-tokens-pipeline.md))
 has two halves:
 
-| Step                 | Command                                              | Needs Figma token?      | Output                                       |
-| -------------------- | ---------------------------------------------------- | ----------------------- | -------------------------------------------- |
-| Figma → DTCG + CSS   | `node ui/scripts/build-tokens.mjs <figma-dump.json>` | yes (to fetch the dump) | `ui/tokens/tokens.json` + `ui/src/theme.css` |
-| DTCG → CSS (offline) | `npm run build:tokens` (in `ui/`)                    | no                      | `ui/src/theme.css`                           |
-| Drift check (CI)     | `npm run check:tokens` (in `ui/`)                    | no                      | exit 1 if `theme.css` is stale               |
+| Step                 | Command                                              | Needs Figma token?      | Output                                        |
+| -------------------- | ---------------------------------------------------- | ----------------------- | --------------------------------------------- |
+| Figma → DTCG + CSS   | `node ui/scripts/build-tokens.mjs <figma-dump.json>` | yes (to fetch the dump) | `ui/tokens/tokens.json` + `ui/src/tokens.css` |
+| DTCG → CSS (offline) | `npm run build:tokens` (in `ui/`)                    | no                      | `ui/src/tokens.css`                           |
+| Drift check (CI)     | `npm run check:tokens` (in `ui/`)                    | no                      | exit 1 if `tokens.css` is stale               |
 
-`ui/src/theme.css` is a **generated artifact** — edit `tokens.json` (or re-run
-the Figma transform), then regenerate. CI fails if they drift.
+The token stylesheet is split into three files:
+
+- **`ui/src/tokens.css`** — generated, Figma-derived primitives (`--color-slate-*`,
+  `--text-*`, …). **Do not edit by hand.** Edit `tokens.json` (or re-run the Figma
+  transform), then regenerate. CI fails if they drift.
+- **`ui/src/semantic.css`** — hand-authored, **provisional** semantic layer
+  (`--color-primary`, `--color-border`, `--radius-*`, …) that the shadcn-derived
+  components reference. The Figma file has no coherent semantic palette yet, so
+  these are invented for v0 — **not Figma parity**. Revise here as the design matures.
+- **`ui/src/theme.css`** — the entry consumers import; it just `@import`s
+  `tw-animate-css` + `tokens.css` + `semantic.css`.
 
 ### Refreshing tokens from Figma
 
@@ -41,7 +50,7 @@ export FIGMA_FILE_KEY=i4WmV5Gfk9uivVQXC5NY8j
 curl -H "X-Figma-Token: $FIGMA_API_KEY" \
   "https://api.figma.com/v1/files/$FIGMA_FILE_KEY?geometry=paths" -o figma-dump.json
 node ui/scripts/build-tokens.mjs figma-dump.json ui
-git diff ui/tokens/tokens.json ui/src/theme.css   # review, then commit
+git diff ui/tokens/tokens.json ui/src/tokens.css   # review, then commit
 ```
 
 ## Figma style-naming contract
