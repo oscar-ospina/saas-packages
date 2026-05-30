@@ -32,13 +32,30 @@ jobs:
       - name: Build
         run: npm run build
 
+      # Publishing to npm is an opt-in follow-up. Until NPM_TOKEN is configured
+      # as a repo secret, leave the `publish` input empty: changesets/action then
+      # only opens/updates the "Version Packages" PR (needs no token) and never
+      # runs `changeset publish` — which would otherwise fail every push to main
+      # with ENEEDAUTH. The moment NPM_TOKEN is set, publish-on-merge turns on
+      # with no further workflow edit.
+      - name: Detect npm token
+        id: npm
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -n "$NPM_TOKEN" ]; then
+            echo "publish=npm run release" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=" >> "$GITHUB_OUTPUT"
+          fi
+
       # Opens/updates a "Version Packages" PR when changesets are present;
-      # publishes to npm when that PR is merged (requires NPM_TOKEN to be set).
+      # publishes to npm on merge only when NPM_TOKEN is set (see above).
       - name: Create release PR or publish
         uses: changesets/action@v1
         with:
           version: npm run version-packages
-          publish: npm run release
+          publish: ${{ steps.npm.outputs.publish }}
           commit: "chore: version packages"
           title: "chore: version packages"
         env:
