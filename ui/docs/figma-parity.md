@@ -18,13 +18,13 @@ Semantic status colors are all faithful.
 
 Aligned to Figma's `Button / States` (Type × State) and `Button / Size` sets:
 
-| Figma                                | → @saas/ui                                    | Notes                                                                                                 |
-| ------------------------------------ | --------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| Type=Primary                         | `variant="default"`                           | orange-300 fill + orange-900 text (5.42:1); hover lightens, focus → orange-400                        |
-| Type=Secondary                       | `variant="outline"`                           | white surface + neutral-200 border + orange-900 text; border darkens on hover                         |
-| Type=Tertiary                        | `variant="ghost"`                             | text-only, neutral-100 hover wash                                                                     |
-| Size=Small / Medium / Large          | `size="sm" / "default" / "lg"`                | padding 4×8 / 8×12 / 12×16; **shared** 8px radius, Open Sans SemiBold 18px, 24px icons, 4px gap       |
-| State=Default/Hover/Focused/Disabled | CSS `:hover` / `:focus-visible` / `:disabled` | Figma disabled = neutral-200 bg + neutral-400 text; we use shadcn's uniform `opacity-50` (divergence) |
+| Figma                                | → @saas/ui                                    | Notes                                                                                                                                                                           |
+| ------------------------------------ | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Type=Primary                         | `variant="default"`                           | orange-300 fill + orange-900 text (5.42:1); hover lightens. Figma's focus=orange-400 fill is **dropped** (orange-900 on it = 3.77:1 < AA) — focus ring is the indicator instead |
+| Type=Secondary                       | `variant="outline"`                           | white surface + neutral-200 border + orange-900 text; border darkens on hover                                                                                                   |
+| Type=Tertiary                        | `variant="ghost"`                             | text-only, neutral-100 hover wash                                                                                                                                               |
+| Size=Small / Medium / Large          | `size="sm" / "default" / "lg"`                | padding 4×8 / 8×12 / 12×16; **shared** 8px radius, Open Sans SemiBold 18px, 24px icons, 4px gap                                                                                 |
+| State=Default/Hover/Focused/Disabled | CSS `:hover` / `:focus-visible` / `:disabled` | Figma disabled = neutral-200 bg + neutral-400 text; we use shadcn's uniform `opacity-50` (divergence)                                                                           |
 
 **Not Figma-backed** (shadcn defaults, no Figma Button Type): `secondary` (neutral fill),
 `destructive` (uses the Figma Semantic/Red token), `link` (orange-700, legible). Kept for

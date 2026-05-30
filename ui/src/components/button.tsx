@@ -16,10 +16,11 @@ const buttonVariants = cva(
       // follow Figma's State variants. The button text color is orange-900
       // across types (= primary-foreground).
       variant: {
-        // Type=Primary: orange-300 fill; Figma hover lightens (white overlay),
-        // focus deepens to orange-400.
-        default:
-          "bg-primary text-primary-foreground shadow-xs hover:bg-orange-200 focus-visible:bg-orange-400",
+        // Type=Primary: orange-300 fill; Figma hover lightens (white overlay).
+        // Figma's Focused state deepens the fill to orange-400, but orange-900
+        // text on orange-400 is 3.77:1 (< AA) — so we diverge and let the focus
+        // ring be the indicator (shadcn default). Documented in figma-parity.md.
+        default: "bg-primary text-primary-foreground shadow-xs hover:bg-orange-200",
         // Type=Secondary: white surface + neutral border + orange text; border
         // darkens on hover.
         outline: "border bg-card text-orange-900 shadow-xs hover:border-neutral-300",
