@@ -11,6 +11,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@fontsource-variable/archivo": "^5.2.8",
+    "@fontsource/open-sans": "^5.2.7",
     "@saas/ui": "*",
     "react": "^19",
     "react-dom": "^19"

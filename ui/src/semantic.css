@@ -80,6 +80,14 @@
   --radius-md: 0.375rem; /* 6px */
   --radius-lg: 0.5rem; /* 8px */
   --radius-xl: 0.75rem; /* 12px */
+
+  /* Fonts — Figma uses Open Sans for Body and Archivo for Headers/Display.
+     --font-sans drives Tailwind's default body font (so all primitives inherit
+     Open Sans); --font-display is available for large titles. The library only
+     declares the families; the consumer loads the actual files (the example app
+     and Storybook self-host them via @fontsource). */
+  --font-sans: var(--font-open-sans);
+  --font-display: var(--font-archivo);
 }
 
 /* Minimal base layer so components that use a bare `border` pick up the token

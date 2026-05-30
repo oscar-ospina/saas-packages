@@ -8,8 +8,10 @@
 @import "../src/theme.css";
 @source "../src";
 
-/* Give story canvases a clean surface. Dev-only; not part of the shipped theme. */
+/* Give story canvases a clean surface + the Figma body font (Storybook's preview
+   defaults the body to Nunito Sans, so set it explicitly). Dev-only. */
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
+  font-family: var(--font-sans);
 }

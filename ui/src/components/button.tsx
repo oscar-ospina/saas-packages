@@ -4,27 +4,41 @@ import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "../lib/cn";
 
+// Aligned to the Figma "Button / States" + "Button / Size" matrix:
+//   Type  → variant   State → :hover/:focus-visible/:disabled   Size → size
+// Shared across all sizes (Figma): 8px radius, Open Sans SemiBold 18px text,
+// 24px icons, 4px gap, hug (padding-based) sizing.
 const buttonVariants = cva(
-  "inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium outline-none transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  "inline-flex shrink-0 items-center justify-center gap-1 whitespace-nowrap rounded-lg text-lg font-semibold outline-none transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-6",
   {
     variants: {
+      // Figma Button "Type". All three use orange-900 (#782516) text; hover/focus
+      // follow Figma's State variants. The button text color is orange-900
+      // across types (= primary-foreground).
       variant: {
-        default: "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
+        // Type=Primary: orange-300 fill; Figma hover lightens (white overlay),
+        // focus deepens to orange-400.
+        default:
+          "bg-primary text-primary-foreground shadow-xs hover:bg-orange-200 focus-visible:bg-orange-400",
+        // Type=Secondary: white surface + neutral border + orange text; border
+        // darkens on hover.
+        outline: "border bg-card text-orange-900 shadow-xs hover:border-neutral-300",
+        // Type=Tertiary: text-only, neutral-100 hover wash.
+        ghost: "text-orange-900 hover:bg-accent",
+        // No Figma Button "Type" (shadcn defaults) — destructive uses the Figma
+        // Semantic/Red token, link a legible brand orange (orange-700, 5.84:1;
+        // --color-primary/orange-300 is a fill-only wash, ~1.9:1 as text).
         destructive:
           "bg-destructive text-destructive-foreground shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20",
-        outline: "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        // --color-primary (orange-300) is a soft FILL — legible only with
-        // primary-foreground on it (5.42:1). As standalone link TEXT it's
-        // ~1.9:1, so the link uses a darker brand orange (orange-700 = 5.84:1).
         link: "text-orange-700 underline-offset-4 hover:underline",
       },
+      // Figma Button "Size" — padding only (text/icon/radius are shared above).
       size: {
-        default: "h-9 px-4 py-2 has-[>svg]:px-3",
-        sm: "h-8 gap-1.5 rounded-md px-3 has-[>svg]:px-2.5",
-        lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-        icon: "size-9",
+        sm: "px-2 py-1", // Figma Small  — padding 4×8
+        default: "px-3 py-2", // Figma Medium — padding 8×12
+        lg: "px-4 py-3", // Figma Large  — padding 12×16
+        icon: "p-2", // square icon-only button (24px glyph)
       },
     },
     defaultVariants: {

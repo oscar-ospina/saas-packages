@@ -18,7 +18,7 @@ describe("Button", () => {
     );
     const btn = screen.getByRole("button", { name: "Delete" });
     expect(btn).toHaveClass("bg-destructive");
-    expect(btn).toHaveClass("h-10");
+    expect(btn).toHaveClass("px-4"); // Figma Large padding (12×16)
   });
 
   it("is keyboard operable (Enter activates)", async () => {
