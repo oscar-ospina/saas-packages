@@ -37,15 +37,33 @@
   --color-secondary-foreground: var(--color-slate-900);
 
   --color-muted: var(--color-slate-100);
-  --color-muted-foreground: var(--color-slate-500); /* #64748b */
+  /* a11y: slate-500 (#64748b) on a slate-100 surface is 4.34:1 — below the
+     WCAG AA 4.5:1 floor for body text. slate-600 (#475569) clears it on both
+     white (7.58:1) and slate-100 (6.92:1). This mapping is invented anyway, so
+     pick the accessible step. See docs/accessibility.md. */
+  --color-muted-foreground: var(--color-slate-600); /* #475569 */
 
   --color-accent: var(--color-slate-100);
   --color-accent-foreground: var(--color-slate-900);
 
-  --color-destructive: var(--color-light-red-base); /* #e92c2c */
+  /* ⚠️  INTENTIONAL ACCESSIBILITY OVERRIDE — NOT the Figma value.
+     The Figma file exposes exactly one red, --color-light-red-base (#e92c2c),
+     and it FAILS WCAG AA in both ways destructive is used:
+       • white text on it (destructive buttons/toasts) = 4.32:1  (need 4.5:1)
+       • it as text on white (error messages, text-destructive) = 4.32:1
+     The destructive→red *role mapping* is invented (like everything in this
+     file), so the role uses #dc2626 (4.83:1 both directions) until follow-up #1
+     replaces this whole layer with a real, parity-checked Figma palette. This
+     does NOT close that follow-up. See docs/accessibility.md. */
+  --color-destructive: #dc2626; /* a11y override; Figma's #e92c2c fails AA */
   --color-destructive-foreground: #ffffff;
 
   --color-border: #e2e8f0; /* provisional (slate-200 — not in the token set) */
+  /* a11y note: input's resting border is 1.23:1 vs white — below WCAG 1.4.11's
+     3:1 for non-text UI. Left as-is on purpose: the focus ring (ring-ring,
+     6.46:1) is the strong state indicator and the shadcn resting border is
+     decorative. Documented finding, not silently restyled — see
+     docs/accessibility.md. */
   --color-input: #e2e8f0; /* provisional */
   --color-ring: var(--color-m3-sys-light-primary);
 
