@@ -1,0 +1,16 @@
+/* Consumer wiring for @saas/ui (see the package README).
+ *
+ * 1. The consumer imports the Tailwind framework — exactly once.
+ * 2. @saas/ui's token surface (tokens + provisional semantic layer + animations).
+ * 3. @source so Tailwind scans the library's class strings (node_modules is
+ *    excluded from auto-detection). The relative depth here is monorepo-specific
+ *    (examples/playground/src → repo root → node_modules); a standalone consumer
+ *    at its own repo root would write `@source "../node_modules/@saas/ui"`.
+ */
+@import "tailwindcss";
+@import "@saas/ui/theme.css";
+@source "../../../node_modules/@saas/ui";
+
+body {
+  @apply bg-background text-foreground;
+}
