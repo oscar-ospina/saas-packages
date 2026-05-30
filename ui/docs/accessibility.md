@@ -1,74 +1,71 @@
 # Accessibility — color contrast audit
 
-Scope: the **provisional** semantic color layer in [`src/semantic.css`](../src/semantic.css),
-audited against the foreground/background pairs the shipped components actually use
-(enumerated from the `bg-*` / `text-*` / `border-*` / `ring-*` utilities in `src/components/`).
+Scope: the semantic color layer in [`src/semantic.css`](../src/semantic.css), now
+mapped to the **real Figma palette** (the "All palettes" frame → `src/tokens.css`),
+audited against the foreground/background pairs the shipped components actually use.
 
-> ⚠️ This audits the _invented_ v0 palette, not a Figma-derived one. It does **not**
-> close follow-up #1 ("real Figma-derived semantic palette"). When that lands, re-run
-> this audit against the new values.
+> This audits **token parity**, not component parity. The roles map to real Figma
+> tokens, but primitives don't yet pixel-match their Figma components (epic #5's
+> "Component ↔ Figma parity" stays open). The Figma Variables registry isn't
+> readable via the Framelink MCP, so the "All palettes" frame is the source.
 
 ## Method
 
 - WCAG 2.x relative-luminance contrast ratio.
-- **Thresholds:** body text **4.5:1** (1.4.3); large/bold text and non-text UI
-  components/state indicators **3:1** (1.4.11). `ring-*`, `border-input` are judged
-  at 3:1.
-- All `var()` chains resolved to their final hex (e.g. `--color-foreground` →
-  `slate-900` → `#0f172a`; `--color-primary` → `m3-sys-light-primary` → `#65558f`).
+- **Thresholds:** body text **4.5:1** (1.4.3); large/bold text and non-text UI /
+  state indicators **3:1** (1.4.11). `ring`, `border`, `input` judged at 3:1.
+- `var()` chains resolved to hex (e.g. `--color-primary` → `orange-300` `#f8ad79`;
+  `--color-foreground` → `text-primary` `#363744`).
 
-## Results (after fixes)
+## Results
 
-| Pair (fg on bg)                                | Resolved               | Ratio   | Need | Result                     |
-| ---------------------------------------------- | ---------------------- | ------- | ---- | -------------------------- |
-| foreground / card-fg / popover-fg on white     | `#0f172a` on `#ffffff` | 17.85:1 | 4.5  | ✅                         |
-| secondary-fg on secondary                      | `#0f172a` on `#f1f5f9` | 16.30:1 | 4.5  | ✅                         |
-| accent-fg on accent                            | `#0f172a` on `#f1f5f9` | 16.30:1 | 4.5  | ✅                         |
-| primary-fg on primary                          | `#ffffff` on `#65558f` | 6.46:1  | 4.5  | ✅                         |
-| primary text on background                     | `#65558f` on `#ffffff` | 6.46:1  | 4.5  | ✅                         |
-| **muted-foreground on white**                  | `#475569` on `#ffffff` | 7.58:1  | 4.5  | ✅ (was 4.76, slate-500)   |
-| **muted-foreground on muted/secondary/accent** | `#475569` on `#f1f5f9` | 6.92:1  | 4.5  | ✅ **fixed** (was 4.34 ❌) |
-| **destructive-fg on destructive**              | `#ffffff` on `#dc2626` | 4.83:1  | 4.5  | ✅ **fixed** (was 4.32 ❌) |
-| **destructive text on background**             | `#dc2626` on `#ffffff` | 4.83:1  | 4.5  | ✅ **fixed** (was 4.32 ❌) |
-| ring (primary) vs background                   | `#65558f` on `#ffffff` | 6.46:1  | 3.0  | ✅                         |
-| ring-destructive vs background                 | `#dc2626` on `#ffffff` | 4.83:1  | 3.0  | ✅                         |
-| **border-input vs background**                 | `#e2e8f0` on `#ffffff` | 1.23:1  | 3.0  | ⚠️ **documented finding**  |
+| Pair (fg on bg)                            | Resolved               | Ratio   | Need | Result                   |
+| ------------------------------------------ | ---------------------- | ------- | ---- | ------------------------ |
+| foreground on background                   | `#363744` on `#f6f6f9` | 10.90:1 | 4.5  | ✅                       |
+| foreground on card/popover (paper)         | `#363744` on `#ffffff` | 11.75:1 | 4.5  | ✅                       |
+| primary-foreground on primary              | `#782516` on `#f8ad79` | 5.42:1  | 4.5  | ✅ (Figma's Button pair) |
+| secondary/accent-foreground on neutral-100 | `#363744` on `#ededf1` | 10.07:1 | 4.5  | ✅                       |
+| muted-foreground on muted                  | `#565973` on `#ededf1` | 5.85:1  | 4.5  | ✅                       |
+| muted-foreground on background             | `#565973` on `#f6f6f9` | 6.34:1  | 4.5  | ✅                       |
+| destructive-foreground on destructive      | `#ffffff` on `#e7000b` | 4.77:1  | 4.5  | ✅                       |
+| destructive **text** on card (paper)       | `#e7000b` on `#ffffff` | 4.77:1  | 4.5  | ✅                       |
+| **destructive text on app background**     | `#e7000b` on `#f6f6f9` | 4.42:1  | 4.5  | ⚠️ **finding**           |
+| ring vs background                         | `#f0601f` on `#f6f6f9` | 3.04:1  | 3.0  | ✅                       |
+| ring vs card                               | `#f0601f` on `#ffffff` | 3.28:1  | 3.0  | ✅                       |
+| **border/input vs background**             | `#d7d8e0` on `#f6f6f9` | 1.32:1  | 3.0  | ⚠️ **finding**           |
 
 ## Findings & decisions
 
-### 1. `muted-foreground` — fixed (invented mapping)
+### Primary — Figma's own accessible Button pair
 
-`slate-500` on a `slate-100` surface was **4.34:1** (below AA). The role→value mapping
-is invented, so it was moved to **`slate-600` (`#475569`)**, which clears AA on both
-white (7.58:1) and slate-100 (6.92:1). No divergence from any design source.
+Figma's `Base/Primary` is **orange-400 `#f37d3e`** (the brand hue), but it fails AA
+as a text surface (white = 2.7:1; dark text = 3.8:1). Figma's **Button component**
+resolves this itself with **orange-300 `#f8ad79` bg + orange-900 `#782516` text
+(5.42:1)** — so the `primary` _surface_ role uses exactly that pair. The brand hue
+remains as `--color-orange-400` and drives the focus ring (`--color-ring` =
+orange-500, 3.04:1). No invention, no override — this is the design's own answer.
 
-### 2. `destructive` — intentional a11y override
+### Destructive — faithful Figma red, with one documented finding
 
-Figma exposes exactly one red, `--color-light-red-base` (`#e92c2c`), and it **fails AA
-in both directions** destructive is used: white text on it (buttons/toasts) = 4.32:1,
-and as text on white (error messages, `text-destructive`) = 4.32:1.
+`--color-destructive` = Figma `Semantic/Red` **`#e7000b`** (the earlier `#dc2626`
+a11y override is **dropped** — the faithful red clears AA where it matters: white
+on it = 4.77:1, and as error text on a white card = 4.77:1).
 
-The destructive→red _role mapping_ is invented (like everything in this layer), so the
-role now uses **`#dc2626`** (4.83:1 both directions) — a deliberate, documented
-accessibility override, **not** the Figma value. This is a stopgap: follow-up #1
-(real Figma palette) supersedes it and must re-verify contrast then. This override does
-**not** close that follow-up.
+**Finding:** error text (`text-destructive`) directly on the app background
+`#f6f6f9` is **4.42:1** — marginally below AA. In practice error text sits on white
+cards/inputs (4.77:1 ✅); on the bare page background it's a hair short. Faithful to
+the Figma value, so **documented, not overridden** — the real fix is for the design
+to darken `Semantic/Red` one step, or for error text to always sit on `paper`.
 
-### 3. `border-input` — documented finding, left as-is
+### border / input — documented finding, left as-is
 
-An input's resting border (`#e2e8f0`) is **1.23:1** vs white — below 1.4.11's 3:1 for a
-component boundary. Left unchanged on purpose:
-
-- The **focus ring** (`ring-ring`, 6.46:1) is the strong, AA-passing state indicator.
-- The low-contrast resting border is shadcn's intended visual language; restyling it
-  here would diverge heavily and isn't clearly required (the field is also identified by
-  its label and layout, not the border alone).
-
-Revisit when follow-up #1 establishes real surface/border tokens; that's the right place
-to decide whether resting input borders should meet 3:1.
+Resting `border-input` (`neutral-200 #d7d8e0`) is **1.32:1** vs the background —
+below 1.4.11's 3:1 for a component boundary. Left unchanged: the focus ring
+(orange-500, 3.04:1) is the strong AA-passing state indicator, and a faint resting
+border is the design's neutral-200 choice. Revisit if the design introduces a
+dedicated input-border token.
 
 ## Reproduce
 
-The ratios above are mechanical. Resolve each `var()` to hex and apply the WCAG
-relative-luminance formula (a ~15-line script: linearize sRGB channels, weight
-0.2126/0.7152/0.0722, `(L_light + 0.05) / (L_dark + 0.05)`).
+Resolve each `var()` to hex and apply the WCAG relative-luminance formula
+(linearize sRGB, weight 0.2126/0.7152/0.0722, `(L_light+0.05)/(L_dark+0.05)`).
