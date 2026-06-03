@@ -100,6 +100,7 @@ function ToastClose({ className, ...props }: React.ComponentProps<typeof ToastPr
       {...props}
     >
       <XIcon className="size-4" />
+      <span className="sr-only">Close</span>
     </ToastPrimitive.Close>
   );
 }

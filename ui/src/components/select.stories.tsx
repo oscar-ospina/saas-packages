@@ -52,3 +52,31 @@ export const Open: Story = {
     </Select>
   ),
 };
+
+// Accessible usage: a combobox needs a name from a label, not from its
+// placeholder (the placeholder is the value display). Wired via aria-labelledby
+// to a visible label — the pattern consumers should follow.
+export const WithLabel: Story = {
+  parameters: { controls: { disable: true } },
+  render: () => (
+    <div className="grid gap-2">
+      <span id="fruit-label" className="text-sm font-medium">
+        Fruit
+      </span>
+      <Select>
+        <SelectTrigger className="w-56" aria-labelledby="fruit-label">
+          <SelectValue placeholder="Select a fruit" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            <SelectLabel>Fruits</SelectLabel>
+            <SelectItem value="apple">Apple</SelectItem>
+            <SelectItem value="banana">Banana</SelectItem>
+            <SelectItem value="blueberry">Blueberry</SelectItem>
+            <SelectItem value="grapes">Grapes</SelectItem>
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+    </div>
+  ),
+};
