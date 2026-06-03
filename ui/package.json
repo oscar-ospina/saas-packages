@@ -41,7 +41,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test:visual": "playwright test",
-    "test:visual:update": "playwright test --update-snapshots"
+    "test:visual:update": "playwright test --update-snapshots",
+    "test:e2e": "playwright test -c playwright.e2e.config.ts"
   },
   "peerDependencies": {
     "react": "^18 || ^19",
@@ -57,6 +58,7 @@
     "tailwind-merge": "^3.6.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
     "@fontsource-variable/archivo": "^5.2.8",
     "@fontsource/open-sans": "^5.2.7",
     "@playwright/test": "^1.60.0",

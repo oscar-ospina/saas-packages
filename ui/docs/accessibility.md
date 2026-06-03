@@ -72,6 +72,40 @@ below 1.4.11's 3:1 for a component boundary. Left unchanged: the focus ring
 border is the design's neutral-200 choice. Revisit if the design introduces a
 dedicated input-border token.
 
+## Automated checks (CI)
+
+Two functional gates run on every PR in the pinned Playwright container
+(`.github/workflows/visual.yml`), sharing one Storybook build:
+
+- **Keyboard navigation** (`tests/e2e/keyboard.spec.ts`) — real-browser proof that the
+  interactive primitives are operable by keyboard: Dialog opens on Enter, traps focus,
+  closes on Escape and restores focus to its trigger; Select opens and commits a choice via
+  Arrow/Enter and closes on Escape; a Field label focuses its control with the right
+  `aria-invalid` / `aria-describedby` / `aria-required`; a Button is Tab-reachable and a
+  disabled one is skipped; a Toast opens from the keyboard with a named, operable Close.
+  This closes epic #5's "keyboard navigation … not yet E2E-verified" item.
+- **axe accessibility** (`tests/e2e/a11y.spec.ts`) — `@axe-core/playwright` asserts **zero
+  WCAG 2.2 A/AA violations** per primitive in accessible (labelled) usage. That includes the
+  2.2-only `target-size` (2.5.8, 24×24px) rule — the Toast close (24px) and the `sm` Button
+  clear it.
+
+Scoped exclusions, so the gate stays meaningful rather than noisy:
+
+- `color-contrast` is **off** in axe — contrast is audited by hand above (which knows the
+  real fg/bg pairs each component uses and tracks the `border-input` / destructive-text
+  findings). Running both would duplicate and disagree.
+- axe **best-practice** rules (`region`, `landmark-one-main`, …) are excluded — they fire on
+  a bare story iframe that has no page landmarks, a harness artifact, not a component defect.
+- Select is scanned **labelled and closed**. A combobox takes its name from a label, not its
+  placeholder, so the bare story is unlabelled by design (like `input--default`); the
+  forced-`defaultOpen` story trips `aria-hidden-focus`, an upstream Radix open-state artifact
+  (the trigger stays focusable under the aria-hidden applied to outside content while focus
+  is trapped in the listbox). The open listbox's roles + keyboard are covered by the keyboard
+  suite instead.
+
+Found and fixed by the axe gate: the **Toast close button had no accessible name** (icon
+only) — added an `sr-only` "Close", matching Dialog's close button.
+
 ## Reproduce
 
 Resolve each `var()` to hex and apply the WCAG relative-luminance formula

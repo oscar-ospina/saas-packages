@@ -1,4 +1,4 @@
-name: Visual regression
+name: Visual & interaction
 
 on:
   pull_request:
@@ -10,6 +10,9 @@ on:
 # same environment — if they were made elsewhere (e.g. a local Linux box with a
 # different font package set), run `npm run test:visual:update --workspace=@saas/ui`
 # here once (workflow_dispatch) and commit the refreshed snapshots.
+#
+# Two suites share one Storybook build: visual regression (pixel baselines) and
+# the functional E2E (real keyboard navigation + axe accessibility, epic #5).
 jobs:
   visual:
     runs-on: ubuntu-latest
@@ -26,6 +29,9 @@ jobs:
 
       - name: Visual regression
         run: npm run test:visual --workspace=@saas/ui
+
+      - name: Keyboard & a11y (e2e)
+        run: npm run test:e2e --workspace=@saas/ui
 
       - name: Upload diff report
         if: failure()
