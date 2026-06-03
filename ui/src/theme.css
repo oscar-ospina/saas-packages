@@ -17,5 +17,6 @@
 /* Generated, Figma-derived primitive tokens (do not edit — see CONTRIBUTING). */
 @import "./tokens.css";
 
-/* Hand-authored, PROVISIONAL semantic layer (bg-primary, border-input, …). */
+/* Semantic layer — maps shadcn roles (bg-primary, border-input, --font-sans, …)
+   to the real Figma palette. See docs/figma-parity.md + docs/accessibility.md. */
 @import "./semantic.css";

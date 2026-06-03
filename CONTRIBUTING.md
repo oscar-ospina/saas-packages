@@ -84,8 +84,8 @@ walks the tree, reads values off nodes that apply a style, and names tokens from
 the style name. To get clean tokens, name Figma styles like this:
 
 - **`Category/Variant` slash convention.** Each `/` becomes a nesting level and a
-  CSS-var segment. `Header/H1 Bold` → `--text-header-h1-bold`; `Slate/500` →
-  `--color-slate-500`.
+  CSS-var segment. `Header/H1 Bold` → `--text-header-h1-bold`; `Body/B1 Regular` →
+  `--text-body-b1-regular`.
 - **Keep casing/words human.** Spaces and casing are slugified
   (`H1 Bold` → `h1-bold`), so `Body/B1 Regular` is fine.
 - **Never name a style after its value.** A style literally named `0f172a`
