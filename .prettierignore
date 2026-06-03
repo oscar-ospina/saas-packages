@@ -8,3 +8,5 @@
 # Generated token artifacts — DO NOT reformat (byte-for-byte parity is asserted in CI)
 ui/src/theme.css
 ui/tokens/tokens.json
+# Verbatim Figma MCP snapshot — parsed by build-palette.mjs; keep exactly as fetched
+ui/tokens/figma-all-palettes.yaml

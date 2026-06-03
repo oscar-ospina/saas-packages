@@ -35,8 +35,32 @@ to `"../node_modules/@saas/ui/dist/**/*.mjs"` to keep scans fast. Do **not** add
 `@import "tailwindcss"` anywhere in `@saas/ui` — only the consumer imports it.
 
 ```tsx
-import { cn } from "@saas/ui";
-// Components (Button, Input, …) are re-exported from "@saas/ui" as they land.
+// All 10 primitives + cn() are exported from the package root:
+import {
+  Button,
+  Badge,
+  Card,
+  Input,
+  Label,
+  Field,
+  Avatar,
+  Select,
+  Dialog,
+  Toast,
+  cn,
+} from "@saas/ui";
+```
+
+### Fonts
+
+The tokens reference the Figma typefaces — **Open Sans** (body, `--font-sans`)
+and **Archivo** (display, `--font-display`). The library only _declares_ the
+families; **you load the font files**, e.g. once in your app entry:
+
+```ts
+import "@fontsource/open-sans/400.css";
+import "@fontsource/open-sans/600.css";
+import "@fontsource-variable/archivo/index.css";
 ```
 
 ## Compatibility matrix
@@ -57,10 +81,12 @@ composes three files:
   `@saas/ui/tokens.json` for non-CSS / cross-platform consumers).
 - `src/tokens.css` — **generated** Tailwind v4 `@theme` block of Figma primitives.
   **Do not edit by hand.**
-- `src/semantic.css` — hand-authored, **provisional** semantic tokens
-  (`--color-primary`, `--color-border`, `--radius-*`) the components reference.
-  The Figma file lacks a coherent semantic palette, so these are invented for v0
-  — **not Figma parity**. See [`CONTRIBUTING.md`](../CONTRIBUTING.md).
+- `src/semantic.css` — the semantic layer (`--color-primary`, `--color-border`,
+  `--radius-*`, `--font-sans`) mapping shadcn roles to the **real Figma palette**
+  (Base/Primary → orange, neutrals, `Semantic/Red` → destructive…). Contrast-
+  audited. See [`docs/figma-parity.md`](./docs/figma-parity.md) and
+  [`docs/accessibility.md`](./docs/accessibility.md). _(Token + Button parity is
+  done; the other primitives and dark mode are tracked there.)_
 - `src/theme.css` — the entry; `@import`s `tw-animate-css` + the two above.
 
 ```bash
@@ -72,10 +98,15 @@ To refresh from Figma, see the repo [`CONTRIBUTING.md`](../CONTRIBUTING.md).
 
 ## Scripts
 
-| Script                                  | What                             |
-| --------------------------------------- | -------------------------------- |
-| `npm run build`                         | tsdown → `dist/` (ESM + `.d.ts`) |
-| `npm run dev`                           | tsdown watch                     |
-| `npm test`                              | Vitest (jsdom)                   |
-| `npm run typecheck`                     | `tsc --noEmit`                   |
-| `npm run build:tokens` / `check:tokens` | token pipeline / drift check     |
+Browse the design system live: **<https://oscar-ospina.github.io/saas-packages/>**.
+
+| Script                                  | What                                       |
+| --------------------------------------- | ------------------------------------------ |
+| `npm run build`                         | tsdown → `dist/` (ESM + `.d.ts`)           |
+| `npm run dev`                           | tsdown watch                               |
+| `npm run storybook`                     | Storybook dev server (`:6006`)             |
+| `npm run build-storybook`               | static Storybook → `storybook-static/`     |
+| `npm test`                              | Vitest (jsdom)                             |
+| `npm run test:visual` / `:update`       | Playwright visual regression (needs build) |
+| `npm run typecheck`                     | `tsc --noEmit`                             |
+| `npm run build:tokens` / `check:tokens` | token pipeline / drift check               |

@@ -26,6 +26,23 @@ npm test           # Vitest per workspace
 npm run check:tokens   # assert theme.css is in sync with tokens.json
 ```
 
+## See it running
+
+```bash
+# Storybook — the whole design system (all primitives, variants, tokens, a11y)
+npm run storybook --workspace=@saas/ui            # → http://localhost:6006
+
+# Example consumer app — @saas/ui used end to end ("Team settings" screen)
+npm run dev --workspace=@saas/example-playground  # → Vite prints the URL (default :5173)
+
+# Visual regression (Playwright): build the static Storybook first, then compare
+npm run build-storybook --workspace=@saas/ui
+npm run test:visual --workspace=@saas/ui          # add :update to refresh baselines
+```
+
+Or browse the deployed Storybook (auto-published on every push to `main`):
+**<https://oscar-ospina.github.io/saas-packages/>**.
+
 ## Layout
 
 ```
