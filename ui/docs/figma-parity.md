@@ -33,10 +33,54 @@ API completeness.
 **Still not pixel-parity:** VR baselines assert self-consistency, not a Figma overlay
 diff. Hover/focus are approximated, not pixel-matched.
 
-### Other primitives — NOT yet audited against Figma
+> **Source for the audits below (2026-06-04):** the Figma API was rate-limited (429), so these
+> were aligned to the **component specimen cards** (`preview/comp-*.html`) from the **Claude Design**
+> handoff of the *same* `UI-Exercise` file — the design tool's faithful reconstruction of the Figma
+> controls. All values are bound to **semantic tokens** (the DS stays brand-agnostic / re-themeable);
+> AA is preserved over pixel-fidelity where the two conflict.
 
-Badge, Card, Input, Label, Field, Avatar, Select, Dialog, Toast inherit the parity-correct
-**tokens** but haven't been aligned to specific Figma components. Open work.
+### Input · Field · Select — audited ✅ (2026-06-04)
+
+Aligned to the form-control specimen (`comp-inputs.html`).
+
+| Figma control (specimen)               | → @saas/ui                             | Notes                                                                                            |
+| -------------------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Text field — 44px tall, 8px radius     | `Input` `h-11 rounded-lg px-4`         | was `h-9 rounded-md px-3`; now matches the 44 / 8px-radius / 16px-pad spec                        |
+| Select / dropdown (field + chevron)    | `SelectTrigger` `h-11 rounded-lg px-4` | default size matched to Input; `sm` → `h-9`                                                       |
+| Label + control + hint/error           | `Field`                                | wraps `Input`; inherits the above + the a11y wiring (label / aria / required)                     |
+| Focus                                  | `focus-visible:ring-ring/50`           | **divergence (a11y):** specimen uses orange-400 @16%; we keep the stronger orange-500 @50% ring   |
+| Resting border                         | `border-input` (neutral-200)           | specimen uses `rgba(39,47,78,.16)`; neutral-200 is slightly higher-contrast — kept                |
+
+### Card — audited ✅ (2026-06-04)
+
+Aligned to `comp-cards.html`.
+
+| Figma card (specimen)        | → @saas/ui              | Notes                                                                                                  |
+| ---------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------- |
+| 16px radius                  | `Card` `rounded-2xl`    | was `rounded-xl` (12px) → now 16px                                                                     |
+| White fill + soft warm shadow | `bg-card shadow-sm`    | specimen shadow is warm (`0 2px 8px rgba(51,16,10,.08)`); we keep the token-neutral `shadow-sm` so a brand may override. No colored left-border. |
+
+### Badge — audited ✅ / ⚠️ (2026-06-04)
+
+Aligned to `comp-badges.html`.
+
+| Figma badge (specimen)            | → @saas/ui                          | Notes                              |
+| --------------------------------- | ----------------------------------- | ---------------------------------- |
+| Pill (full radius)                | `Badge` `rounded-full px-2.5`       | was `rounded-md` → now a pill      |
+| Solid primary / neutral / outline | `default` / `secondary` / `outline` | mapping unchanged                  |
+
+**⚠️ Status tints deferred (AA).** The specimen also shows soft status badges (`*-light` bg + `*-base`
+text for Confirmada / Pendiente / Virtual / Cancelada). Measured against our WCAG AA gate, **3 of 4 fail
+as text**: success 3.47:1, warning 3.09:1, error 4.36:1 (only info 4.82:1 passes). Shipping them as-is
+would breach the gate, so they're **not** added; they need AA-safe darker status foregrounds (a future
+token addition) before becoming `success` / `warning` / `info` variants.
+
+### Avatar · Dialog · Toast · Label — no Figma component specimen
+
+These have **no dedicated component** in the `UI-Exercise` file (none in the specimen set). They stay
+**token-faithful shadcn defaults** — correct palette / type / radius, with no pixel target to match —
+the same way Button's non-Figma variants (`secondary` / `destructive` / `link`) are handled. Re-audit
+if a Figma component for any of them is added later.
 
 ## Fonts — wired ✅
 
