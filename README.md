@@ -10,8 +10,11 @@ sibling of [`saas-planner`](https://github.com/oscar-ospina/saas-planner)
 | `examples/*`  | _(private)_        | Example consumer apps that import `@saas/ui` end to end.                                             |
 
 Implements [epic #5 — Establish the design system foundation](https://github.com/oscar-ospina/saas-planner/issues/5)
-and its two ADRs ([stack](https://github.com/oscar-ospina/saas-planner/blob/main/docs/superpowers/specs/2026-05-27-ds-stack-decision.md),
+(**complete — 2026-06-04**) and its two ADRs ([stack](https://github.com/oscar-ospina/saas-planner/blob/main/docs/superpowers/specs/2026-05-27-ds-stack-decision.md),
 [token pipeline](https://github.com/oscar-ospina/saas-planner/blob/main/docs/superpowers/specs/2026-05-27-ds-tokens-pipeline.md)).
+`@saas/ui` is **published to npm** ([`@saas/ui`](https://www.npmjs.com/package/@saas/ui)) — consumers just `npm i @saas/ui`.
+
+The design system is **brand-agnostic / re-themeable**, modeled on the reference brand **Alta Vibración** (not baked in). Source of truth is the `UI-Exercise` Figma file; the highest-leverage reference is a **Claude Design** handoff bundle (token CSS, component specimen cards, clickable UI kits) — the component↔Figma parity ([`ui/docs/figma-parity.md`](./ui/docs/figma-parity.md)) was audited from it. See [planner CLAUDE.md → Claude Design access](https://github.com/oscar-ospina/saas-planner/blob/main/CLAUDE.md#claude-design-access) for how to fetch it.
 
 ## Quick start
 
