@@ -53,9 +53,25 @@ frame (2, 5, 6, 10, 11, 23, 25 px… no discrete ramp). So there's nothing to ex
 `@saas/ui` uses **Tailwind's default 4px-based spacing**. Radius is the exception: anchored
 to the Button's 8px corner (`--radius-lg`).
 
-## Dark mode — deferred (next)
+## Dark mode — deferred (no dark source in Figma)
 
-A dark palette exists in Figma (`_Swatch/Light and Dark`). Dark mode is a structural change
-(restructure `semantic.css` to `@theme inline` + `.dark{}`, faithfully extract the dark
-palette, re-audit contrast on dark surfaces, add dark stories/baselines) — planned as its
-own change to get a real audit rather than a rushed one.
+**There is no dark palette in Figma.** An earlier version of this note claimed one existed
+at `_Swatch/Light and Dark` — that was an **unverified assumption**, not grounded in any
+snapshot. The cached `tokens/figma-all-palettes.yaml` is light-only, and the live
+`UI-Exercise` file has no `Dark/*` swatches (confirmed 2026-06-04). So the real blocker was
+never the Figma rate limit — the source doesn't exist.
+
+Dark mode is **deferred to a future theming epic** (tracked in
+[saas-planner #13](https://github.com/oscar-ospina/saas-planner/issues/13), unlinked from
+epic #5). When revisited, first decide the **source** — a design/product call, not a
+rate-limit issue:
+
+1. **Add `Dark/*` swatches to Figma** → extract faithfully via `scripts/build-palette.mjs`
+   (keeps Figma as the single source of truth); or
+2. **Derive a dark palette in code** from the light tokens (systematic neutral/surface/text
+   remap, shadcn/Radix-style) with `.dark{}` via `@custom-variant dark` + a real dark
+   contrast audit — ships without Figma, but it's a *designed-in-code* theme (no "faithful
+   extract").
+
+The structural work is the same either way (`semantic.css` → `@theme inline` + `.dark{}`,
+dark contrast audit, dark stories/VR baselines). The light theme stays as shipped.
