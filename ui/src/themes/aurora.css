@@ -1,0 +1,103 @@
+/**
+ * DEMO theme — invented second brand "Aurora". NOT published (not imported by
+ * src/index.ts, so it never reaches dist). Its only job is to PROVE that
+ * @saas/ui re-skins to a different brand purely by overriding the shadcn
+ * semantic-role variables — i.e. to validate ADR #18 / spike #18 empirically.
+ *
+ * Aurora is a deliberately cool palette (teal + cool-slate, sharper corners) so
+ * the contrast with AV's warm orange/violet is unmistakable. Every text pair is
+ * WCAG 2.2 AA (computed):
+ *   primary-fg #134e48 on primary #6fe0c6 ............ 5.95:1  ✔
+ *   muted-fg   #4b5867 on muted   #e9edf1 ............ 6.17:1  ✔
+ *   foreground #1d2530 on background #f5f7f9 ......... 14.38:1 ✔
+ *   destructive-fg #fff on destructive #e7000b ....... 4.77:1  ✔
+ *   ring #0d9488 on background ....................... 3.49:1  ✔ (non-text 1.4.11)
+ *
+ * TWO scopes on purpose:
+ *   .theme-aurora            → overrides ONLY the semantic roles. This is the
+ *                              "correct", component-agnostic layer. It re-skins
+ *                              everything that uses bg-primary / ring-ring /
+ *                              border-input / text-muted-foreground / etc.
+ *   .theme-aurora-complete   → roles + a PATCH for components that bypass the
+ *                              roles and reach raw ramp tokens directly. Verified
+ *                              leak: Button's outline/ghost (text-orange-900),
+ *                              link (text-orange-700), default hover
+ *                              (hover:bg-orange-200) and outline hover
+ *                              (hover:border-neutral-300). See ADR #18 "Finding".
+ *
+ * The gap between the two scopes IS the finding: a role-only theme leaves those
+ * Button variants warm. The real fix is to give Button a semantic role for its
+ * emphasis/link text (a saas-packages follow-up), not to patch raw tokens.
+ */
+
+/* ── Invented Aurora ramps (parallel to AV's warm orange/violet) ───────────── */
+.theme-aurora,
+.theme-aurora-complete {
+  --aurora-teal-50: #ecfdf7;
+  --aurora-teal-100: #d2f9ec;
+  --aurora-teal-200: #a8f0db;
+  --aurora-teal-300: #6fe0c6; /* primary fill */
+  --aurora-teal-400: #2fc9a8;
+  --aurora-teal-500: #14b8a6; /* brand hue */
+  --aurora-teal-600: #0d9488; /* ring */
+  --aurora-teal-700: #0f766e; /* link text */
+  --aurora-teal-800: #115e56;
+  --aurora-teal-900: #134e48; /* on-primary / emphasis text */
+  --aurora-teal-950: #042f2a;
+
+  --aurora-gray-50: #f5f7f9;
+  --aurora-gray-100: #e9edf1;
+  --aurora-gray-200: #d3dae1;
+  --aurora-gray-300: #b3bec9;
+  --aurora-gray-400: #8593a3;
+  --aurora-gray-500: #5f6e7e;
+  --aurora-gray-600: #4b5867;
+  --aurora-gray-700: #3b4654;
+  --aurora-gray-800: #2c343f;
+  --aurora-gray-900: #1d2530;
+  --aurora-gray-950: #12181f;
+}
+
+/* ── Layer 1: semantic-role overrides (the proper, component-agnostic layer) ── */
+.theme-aurora,
+.theme-aurora-complete {
+  --color-background: var(--aurora-gray-50);
+  --color-foreground: var(--aurora-gray-900);
+
+  --color-card: #ffffff;
+  --color-card-foreground: var(--aurora-gray-900);
+  --color-popover: #ffffff;
+  --color-popover-foreground: var(--aurora-gray-900);
+
+  --color-primary: var(--aurora-teal-300); /* fill — pair with primary-foreground */
+  --color-primary-foreground: var(--aurora-teal-900); /* 5.95:1 */
+
+  --color-secondary: var(--aurora-gray-100);
+  --color-secondary-foreground: var(--aurora-gray-900);
+  --color-muted: var(--aurora-gray-100);
+  --color-muted-foreground: var(--aurora-gray-600); /* 6.17:1 */
+  --color-accent: var(--aurora-gray-100);
+  --color-accent-foreground: var(--aurora-gray-900);
+
+  --color-destructive: #e7000b;
+  --color-destructive-foreground: #ffffff;
+
+  --color-border: var(--aurora-gray-200);
+  --color-input: var(--aurora-gray-200);
+  --color-ring: var(--aurora-teal-600); /* 3.49:1 */
+
+  /* Non-color theming too — Aurora is a sharper brand than AV (8px → 4px). */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.1875rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.375rem;
+}
+
+/* ── Layer 2: patch the raw ramp tokens Button reaches past its roles ───────── */
+/* Without this, .theme-aurora leaves these Button variants warm (the finding).  */
+.theme-aurora-complete {
+  --color-orange-200: var(--aurora-teal-100); /* default hover wash      */
+  --color-orange-700: var(--aurora-teal-700); /* link text   (5.1:1)     */
+  --color-orange-900: var(--aurora-teal-900); /* outline/ghost text      */
+  --color-neutral-300: var(--aurora-gray-300); /* outline hover border    */
+}

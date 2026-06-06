@@ -6,6 +6,8 @@
  * package; see the package README.) */
 @import "tailwindcss";
 @import "../src/theme.css";
+/* DEV-ONLY: invented second brand for the Foundations/Theming proof (ADR #18). */
+@import "../src/themes/aurora.css";
 @source "../src";
 
 /* Give story canvases a clean surface + the Figma body font (Storybook's preview
