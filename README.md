@@ -40,6 +40,9 @@ npm run storybook --workspace=@saas/ui            # → http://localhost:6006
 # Example consumer app — @saas/ui used end to end ("Team settings" screen)
 npm run dev --workspace=@saas/example-playground  # → Vite prints the URL (default :5173)
 
+# Example product app — the Alta Vibración flow (Home → Agenda → Pago → Confirmación)
+npm run dev --workspace=@saas/example-web
+
 # Visual regression (Playwright): build the static Storybook first, then compare
 npm run build-storybook --workspace=@saas/ui
 npm run test:visual --workspace=@saas/ui          # add :update to refresh baselines
