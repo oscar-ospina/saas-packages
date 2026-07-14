@@ -1,5 +1,13 @@
 # @saas/ui
 
+## 0.3.0
+
+### Minor Changes
+
+- e5cf1c9: Button now styles exclusively through semantic roles: new `--color-emphasis`, `--color-link`, `--color-primary-hover`, and `--color-border-strong` tokens (semantic.css "Button emphasis roles") replace its raw ramp reaches (`text-orange-900`, `text-orange-700`, `hover:bg-orange-200`, `hover:border-neutral-300`). Rendered output is unchanged for the default brand; `.theme-*` role-only themes now fully re-skin Button (the theming-proof gap is closed).
+- 81f502a: New `Calendar` component from the Alta Vibración "Calendar" design — a booking date picker built on react-day-picker (new dependency), Spanish/Monday-first by default. Selection uses the semantic selection roles; bookable days are exposed as an `available` modifier styled with new highlight roles (`--color-highlight` orange-50 / `--color-highlight-foreground` orange-700, 5.43:1 AA).
+- 408b307: New selection primitives from the Alta Vibración "Selectors & chips" design: `Checkbox` and `RadioGroup`/`RadioGroupItem` (radix-ui, 22px controls) and `Chip` (44px toggle button with `aria-pressed`, for time-slot pickers). Backed by new semantic selection roles — `--color-selected` (orange-500) and `--color-selected-foreground` (orange-950) — chosen over the Figma orange-400/white pair to preserve AA (non-text 3:1, text 4.93:1); themes re-skin them like any other role.
+
 ## 0.2.0
 
 ### Minor Changes
