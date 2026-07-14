@@ -23,7 +23,7 @@ describe("Calendar", () => {
     render(<Calendar mode="single" month={FEB_2025} onSelect={onSelect} />);
     await user.click(screen.getByRole("button", { name: "viernes, 14 de febrero de 2025" }));
     expect(onSelect).toHaveBeenCalled();
-    expect(onSelect.mock.calls[0][0]).toEqual(new Date(2025, 1, 14));
+    expect(onSelect.mock.calls[0]?.[0]).toEqual(new Date(2025, 1, 14));
   });
 
   it("does not select disabled days", async () => {
