@@ -2,7 +2,7 @@
  * DEMO theme — invented second brand "Aurora". NOT published (not imported by
  * src/index.ts, so it never reaches dist). Its only job is to PROVE that
  * @saas/ui re-skins to a different brand purely by overriding the shadcn
- * semantic-role variables — i.e. to validate ADR #18 / spike #18 empirically.
+ * semantic-role variables — i.e. to validate the theming ADR empirically.
  *
  * Aurora is a deliberately cool palette (teal + cool-slate, sharper corners) so
  * the contrast with AV's warm orange/violet is unmistakable. Every text pair is
@@ -12,27 +12,19 @@
  *   foreground #1d2530 on background #f5f7f9 ......... 14.38:1 ✔
  *   destructive-fg #fff on destructive #e7000b ....... 4.77:1  ✔
  *   ring #0d9488 on background ....................... 3.49:1  ✔ (non-text 1.4.11)
+ *   emphasis #134e48 on background ................... 8.84:1  ✔
+ *   link #0f766e on background ....................... 5.1:1   ✔
  *
- * TWO scopes on purpose:
- *   .theme-aurora            → overrides ONLY the semantic roles. This is the
- *                              "correct", component-agnostic layer. It re-skins
- *                              everything that uses bg-primary / ring-ring /
- *                              border-input / text-muted-foreground / etc.
- *   .theme-aurora-complete   → roles + a PATCH for components that bypass the
- *                              roles and reach raw ramp tokens directly. Verified
- *                              leak: Button's outline/ghost (text-orange-900),
- *                              link (text-orange-700), default hover
- *                              (hover:bg-orange-200) and outline hover
- *                              (hover:border-neutral-300). See ADR #18 "Finding".
- *
- * The gap between the two scopes IS the finding: a role-only theme leaves those
- * Button variants warm. The real fix is to give Button a semantic role for its
- * emphasis/link text (a saas-packages follow-up), not to patch raw tokens.
+ * ONE scope is enough: `.theme-aurora` overrides only semantic roles. The
+ * original theming proof needed a second `.theme-aurora-complete` scope that
+ * patched raw ramp tokens (--color-orange-*) because Button bypassed the roles
+ * — that gap is closed: Button now styles through the "Button emphasis roles"
+ * (--color-emphasis / --color-link / --color-primary-hover /
+ * --color-border-strong in semantic.css), themed below like any other role.
  */
 
 /* ── Invented Aurora ramps (parallel to AV's warm orange/violet) ───────────── */
-.theme-aurora,
-.theme-aurora-complete {
+.theme-aurora {
   --aurora-teal-50: #ecfdf7;
   --aurora-teal-100: #d2f9ec;
   --aurora-teal-200: #a8f0db;
@@ -58,9 +50,8 @@
   --aurora-gray-950: #12181f;
 }
 
-/* ── Layer 1: semantic-role overrides (the proper, component-agnostic layer) ── */
-.theme-aurora,
-.theme-aurora-complete {
+/* ── Semantic-role overrides (the whole theme — component-agnostic) ────────── */
+.theme-aurora {
   --color-background: var(--aurora-gray-50);
   --color-foreground: var(--aurora-gray-900);
 
@@ -86,18 +77,15 @@
   --color-input: var(--aurora-gray-200);
   --color-ring: var(--aurora-teal-600); /* 3.49:1 */
 
+  /* Button emphasis roles — the former raw-token leak, now regular roles. */
+  --color-primary-hover: var(--aurora-teal-100); /* default hover wash */
+  --color-emphasis: var(--aurora-teal-900); /* 8.84:1 */
+  --color-link: var(--aurora-teal-700); /* 5.1:1 */
+  --color-border-strong: var(--aurora-gray-300); /* outline hover border */
+
   /* Non-color theming too — Aurora is a sharper brand than AV (8px → 4px). */
   --radius-sm: 0.125rem;
   --radius-md: 0.1875rem;
   --radius-lg: 0.25rem;
   --radius-xl: 0.375rem;
-}
-
-/* ── Layer 2: patch the raw ramp tokens Button reaches past its roles ───────── */
-/* Without this, .theme-aurora leaves these Button variants warm (the finding).  */
-.theme-aurora-complete {
-  --color-orange-200: var(--aurora-teal-100); /* default hover wash      */
-  --color-orange-700: var(--aurora-teal-700); /* link text   (5.1:1)     */
-  --color-orange-900: var(--aurora-teal-900); /* outline/ghost text      */
-  --color-neutral-300: var(--aurora-gray-300); /* outline hover border    */
 }

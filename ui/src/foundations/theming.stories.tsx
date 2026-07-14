@@ -84,15 +84,7 @@ function Showcase() {
   );
 }
 
-function Column({
-  label,
-  sub,
-  themeClass,
-}: {
-  label: string;
-  sub: string;
-  themeClass?: string;
-}) {
+function Column({ label, sub, themeClass }: { label: string; sub: string; themeClass?: string }) {
   return (
     <div className={themeClass}>
       <div className="bg-background p-3">
@@ -110,13 +102,8 @@ function ThemeCompare() {
       <Column label="Marca AV (default)" sub=":root — paleta cálida del DS (naranja + violeta)." />
       <Column
         label="Marca Aurora — solo roles"
-        sub=".theme-aurora · re-skinea todo lo que usa roles semánticos. ⚠ Button outline/ghost/link siguen CÁLIDOS: usan text-orange-* directo (hallazgo ADR #18)."
+        sub=".theme-aurora · re-skin COMPLETO solo con roles semánticos — Button incluido: su texto de énfasis/link y sus hovers ahora pasan por --color-emphasis/link/primary-hover/border-strong (el antiguo parche de tokens crudos ya no existe)."
         themeClass="theme-aurora"
-      />
-      <Column
-        label="Marca Aurora — roles + patch"
-        sub=".theme-aurora-complete · roles + parche de los tokens crudos que Button filtra → re-skin completo."
-        themeClass="theme-aurora-complete"
       />
     </div>
   );
@@ -133,7 +120,8 @@ type Story = StoryObj;
 /**
  * Side-by-side proof that @saas/ui re-skins to a second brand by overriding the
  * semantic-role CSS variables under a `.theme-*` scope — no component edits.
- * Column 2 vs 3 exposes the one gap: Button variants that bypass the roles.
+ * Button's former raw-token leak is closed (emphasis/link/hover roles), so the
+ * role-only column is the complete re-skin.
  */
 export const Compare: Story = {
   render: () => <ThemeCompare />,

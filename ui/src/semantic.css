@@ -75,6 +75,15 @@
   --color-input: var(--color-neutral-200);
   --color-ring: var(--color-orange-500); /* #f0601f */
 
+  /* Button emphasis roles — Button used to reach these raw ramp tokens directly
+     (text-orange-900, text-orange-700, hover:bg-orange-200,
+     hover:border-neutral-300), so role-only themes couldn't re-skin it (the
+     theming-proof finding). Same audited values, now role-addressable. */
+  --color-primary-hover: var(--color-orange-200); /* default-variant hover fill */
+  --color-emphasis: var(--color-orange-900); /* brand emphasis text — 9.4:1 on bg */
+  --color-link: var(--color-orange-700); /* brand link text — 5.4:1 on bg */
+  --color-border-strong: var(--color-neutral-300); /* hovered/strengthened border */
+
   /* Radius — anchored to the Figma Button's 8px corner (= --radius-lg). */
   --radius-sm: 0.25rem; /* 4px */
   --radius-md: 0.375rem; /* 6px */
