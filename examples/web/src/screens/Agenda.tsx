@@ -65,9 +65,8 @@ export function Agenda({
           {/* rail */}
           <Card className="gap-4 p-5 shadow-card">
             <div className="flex items-center gap-3">
-              {/* lili-profile.png pending (public/brand/README.md) — initials until then */}
               <Avatar className="size-14">
-                <AvatarImage src="/brand/lili-profile.png" className="object-cover object-top" />
+                <AvatarImage src="/brand/fotolili.webp" className="object-cover object-top" />
                 <AvatarFallback className="bg-violet-100 font-semibold text-violet-700">
                   LT
                 </AvatarFallback>

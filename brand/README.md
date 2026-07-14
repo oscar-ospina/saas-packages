@@ -17,15 +17,21 @@ section).
 | `assets/illustration-2.svg`                                    | Line icon extracted from the .fig (renders as a TikTok-style glyph — see gaps below)   | workspace `assets/`, verbatim                                                                                                                                                                   |
 | `fonts/Roboto-{Light,Regular,Italic,Medium,SemiBold,Bold}.ttf` | Self-hosted brand font for `--font-ui` surfaces (dashboards/docs/tables)               | **official upstream** (fonts.gstatic.com, Roboto v51 static latin subset) — the workspace's own uploads exceed the sync tool's 256 KiB per-file cap, and they are uploads of this same typeface |
 
-## Not synced — file-size cap
+## Photography — from the product repo (supersedes the workspace uploads)
 
-The design-sync tool caps reads at 256 KiB/file; these workspace files exceed it
-and must be copied manually (download from the workspace UI, or re-export from the
-original sources):
+The raster photos exceed the design-sync read cap, so they were sourced from the
+**real product repo** instead: [`oscar-ospina/alta`](https://github.com/oscar-ospina/alta)
+`public/assets/` (2026-07-13). They carry the brand's hand-drawn single-weight
+line-art overlays — the art PENDIENTES.md reported as missing:
 
-- `assets/lili-profile.png` — consultant portrait (32px-rounded card)
-- `assets/lili-home-1.png`, `assets/lili-home-2.png` — warm natural-light portraits (Home)
-- `assets/hero-bg-home.jpg` — cosmic sky photograph (dark hero background)
+- `assets/starry-sunset-sky.webp` — starry sky bleeding into warm orange sunset (the hero photo)
+- `assets/cosmic-fire-nebula.webp` — night sky over mountains (dark backdrop / "¿Por qué Numerología?" card)
+- `assets/fotolili.webp` — consultant portrait on line-art orange (About card + avatar)
+- `assets/autoconocimiento.webp` — thematic: woman + butterflies + line-art (Cita "Autoconocimiento y Destino")
+- `assets/compatibilidad.webp` — thematic: couple + line-art (relaciones/compatibilidad)
+
+The workspace's own `lili-*.png` / `hero-bg-home.jpg` uploads remain un-copied
+(same size cap) — the alta photos are the product's real assets and take precedence.
 
 ## Known gaps (from the workspace's PENDIENTES.md)
 
@@ -35,7 +41,7 @@ original sources):
   Symbols Rounded. Lucide→Material name map: calendar→event, clock→schedule,
   badge-check→verified, circle-dot→radio (filled), square-check→checkbox,
   sparkles→auto_awesome.
-- **Hero line-art is missing.** The hand-drawn single-weight illustrations
+- **Hero line-art — resolved via the alta photos** (they embed the hand-drawn overlays; standalone SVG exports still don’t exist). Original note: **Hero line-art is missing.** The hand-drawn single-weight illustrations
   (botanical/figurative, golden glow) could not be extracted cleanly from the .fig —
   `illustration-1/2.svg` here are NOT that art (they render as social-media glyphs);
   the workspace fell back to the cosmic photo. Blocked on original SVG/PNG exports.
