@@ -68,3 +68,10 @@ export {
   ToastViewport,
   toastVariants,
 } from "./components/toast";
+
+export { Checkbox } from "./components/checkbox";
+
+export { RadioGroup, RadioGroupItem } from "./components/radio-group";
+
+export { Chip } from "./components/chip";
+export type { ChipProps } from "./components/chip";
