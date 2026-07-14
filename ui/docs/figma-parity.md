@@ -113,6 +113,19 @@ New primitives ported from the "Selectors & chips" specimen (`comp-selectors.htm
 | Chip selected — orange-400 fill + white text    | `bg-selected text-selected-foreground`              | **divergence (a11y):** white on orange-400 is 2.69:1; the pair used is orange-500 + orange-950 (4.93:1 AA). Selection stays saturated-orange, text goes dark |
 | Icon-based controls (Lucide/Material glyphs)    | real form controls (`radix-ui` Checkbox/RadioGroup) | the specimen draws icons; the DS ships accessible controls with the same geometry                                                                            |
 
+### Calendar — audited ✅ / ⚠️ (2026-07-13)
+
+Ported from the "Calendar" specimen (`comp-calendar.html`), built on **react-day-picker**
+(new runtime dependency — accessible grid/keyboard semantics aren't worth hand-rolling).
+Spanish / Monday-first by default (`locale` overridable).
+
+| Specimen                                 | → @saas/ui                                           | Notes                                                                                                   |
+| ---------------------------------------- | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| 300px card, 12px radius, Archivo caption | `Calendar` root + `caption_label font-display`       | faithful (26px nav buttons, 8px-radius tiles, 11px uppercase weekday header)                            |
+| Available day — orange-700 on orange-50  | `modifiers={{ available: [...] }}` → highlight roles | Figma-faithful: 5.43:1 passes AA as-is (`--color-highlight` / `--color-highlight-foreground`)           |
+| Selected day — orange-400 fill + white   | selection roles via `data-[selected]`                | **divergence (a11y):** same orange-500 + orange-950 shift as Checkbox/Chip                              |
+| Disabled day — neutral-300 text          | `data-[disabled]:text-text-tertiary`                 | micro-divergence: tertiary text (same as outside days) instead of neutral-300 — one fewer raw-token use |
+
 ### Avatar · Dialog · Toast · Label — no Figma component specimen
 
 These have **no dedicated component** in the `UI-Exercise` file (none in the specimen set). They stay
