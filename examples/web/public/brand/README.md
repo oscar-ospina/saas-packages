@@ -1,10 +1,7 @@
-Brand assets served at `/brand/*`. `logo-horizontal.svg` is a copy of
-`brand/assets/logo-horizontal.svg` (the source of truth).
+Brand assets served at `/brand/*` — copies; the source of truth is
+`brand/assets/` at the repo root (see its README for provenance).
 
-The photos are **pending** (see `brand/README.md` — they exceed the design-sync
-read cap). Drop them here and the app picks them up without code changes
-(placeholders render until then):
-
-- `hero-bg-home.jpg` — cosmic sky, dark hero background
-- `lili-profile.png` — consultant portrait (Agenda rail avatar)
-- `lili-home-1.png` — Home "¿Quién es Liliana Tobón?" photo card
+- `logo-horizontal.svg` — wordmark lockup
+- `starry-sunset-sky.webp` — hero background (Home)
+- `cosmic-fire-nebula.webp` — "¿Por qué Numerología?" card visual
+- `fotolili.webp` — consultant portrait (About card + Agenda avatar)

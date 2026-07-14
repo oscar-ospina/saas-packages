@@ -9,14 +9,13 @@ import { Badge, Button, Card } from "@saas/ui";
 
 import { CITAS, COP, type Cita, type Step } from "../data";
 
-// The cosmic hero photo (brand/assets/hero-bg-home.jpg) is pending manual copy
-// (see public/brand/README.md). The gradient underlay carries the dark-hero
-// look until the file lands at /brand/hero-bg-home.jpg — then it just appears.
+// Real brand photography from the alta repo (brand/assets/) — the starry sky
+// bleeding into a warm orange sunset is the hero image the brand describes.
 function Hero({ go }: { go: (s: Step) => void }) {
   return (
     <section className="relative overflow-hidden bg-[#22252f]">
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-55 [background-image:radial-gradient(ellipse_at_70%_20%,rgba(127,90,248,.35),transparent_55%),radial-gradient(ellipse_at_85%_80%,rgba(240,96,31,.4),transparent_50%),url('/brand/hero-bg-home.jpg')]"
+        className="absolute inset-0 bg-[url('/brand/starry-sunset-sky.webp')] bg-cover bg-center opacity-55"
         aria-hidden
       />
       <div
@@ -53,7 +52,7 @@ function WhySection() {
   return (
     <section className="mx-auto max-w-[1200px] px-10 py-16">
       <Card className="grid grid-cols-[260px_1fr] items-center gap-9 rounded-3xl p-10 shadow-card">
-        <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl bg-[image:radial-gradient(ellipse_at_30%_20%,rgba(127,90,248,.5),transparent_60%),linear-gradient(160deg,#22252f,#431b97)] shadow-card">
+        <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl bg-[url('/brand/cosmic-fire-nebula.webp')] bg-cover bg-center shadow-card">
           <span className="font-display text-[64px] font-bold text-white/90 [text-shadow:0_2px_16px_rgba(0,0,0,.5)]">
             7
           </span>
@@ -101,8 +100,12 @@ function AboutSection() {
         +50 sesiones en Alta Vibración
       </Badge>
       <div className="mt-8 grid grid-cols-[360px_1fr] items-center gap-10 text-left">
-        {/* lili-home-1.png pending (public/brand/README.md) — warm gradient placeholder */}
-        <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-cover bg-center shadow-card [background-image:linear-gradient(150deg,rgba(248,173,121,.9),rgba(127,90,248,.55)),url('/brand/lili-home-1.png')]">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-card">
+          <img
+            src="/brand/fotolili.webp"
+            alt="Liliana Tobón"
+            className="size-full object-cover object-top"
+          />
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="flex size-14 items-center justify-center rounded-full bg-white/85 shadow-pop">
               <PlayIcon className="size-6 fill-selected text-selected" />
