@@ -100,6 +100,19 @@ as text**: success 3.47:1, warning 3.09:1, error 4.36:1 (only info 4.82:1 passes
 would breach the gate, so they're **not** added; they need AA-safe darker status foregrounds (a future
 token addition) before becoming `success` / `warning` / `info` variants.
 
+### Checkbox · RadioGroup · Chip — audited ✅ / ⚠️ (2026-07-13)
+
+New primitives ported from the "Selectors & chips" specimen (`comp-selectors.html`), built on the
+**selection roles** (`--color-selected` / `--color-selected-foreground` in `semantic.css`).
+
+| Specimen                                        | → @saas/ui                                          | Notes                                                                                                                                                        |
+| ----------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Radio / checkbox — 22px, selected orange-400    | `RadioGroupItem` / `Checkbox` `size-[22px]`         | **divergence (a11y):** selected fill steps orange-400 → orange-500 (2.69:1 fails non-text 1.4.11; 3.28:1 passes — the same shift the focus ring makes)       |
+| Unselected control — neutral-300                | `border-border-strong`                              | role-addressable (themes re-skin it)                                                                                                                         |
+| Time chip — 44px, 8px radius, Open Sans Bold 16 | `Chip` `h-11 rounded-lg text-base font-bold`        | height/radius/type faithful; renders `<button aria-pressed>`                                                                                                 |
+| Chip selected — orange-400 fill + white text    | `bg-selected text-selected-foreground`              | **divergence (a11y):** white on orange-400 is 2.69:1; the pair used is orange-500 + orange-950 (4.93:1 AA). Selection stays saturated-orange, text goes dark |
+| Icon-based controls (Lucide/Material glyphs)    | real form controls (`radix-ui` Checkbox/RadioGroup) | the specimen draws icons; the DS ships accessible controls with the same geometry                                                                            |
+
 ### Avatar · Dialog · Toast · Label — no Figma component specimen
 
 These have **no dedicated component** in the `UI-Exercise` file (none in the specimen set). They stay
