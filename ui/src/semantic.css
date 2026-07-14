@@ -91,6 +91,11 @@
   --color-selected: var(--color-orange-500);
   --color-selected-foreground: var(--color-orange-950);
 
+  /* Availability highlight — Calendar's "available day" tiles. Figma-faithful
+     pair (orange-50 wash + orange-700 text, 5.43:1 AA — no divergence needed). */
+  --color-highlight: var(--color-orange-50);
+  --color-highlight-foreground: var(--color-orange-700);
+
   /* Radius — anchored to the Figma Button's 8px corner (= --radius-lg). */
   --radius-sm: 0.25rem; /* 4px */
   --radius-md: 0.375rem; /* 6px */

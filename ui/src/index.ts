@@ -75,3 +75,5 @@ export { RadioGroup, RadioGroupItem } from "./components/radio-group";
 
 export { Chip } from "./components/chip";
 export type { ChipProps } from "./components/chip";
+
+export { Calendar } from "./components/calendar";

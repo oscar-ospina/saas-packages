@@ -18,6 +18,7 @@ const STORIES = [
   "components-checkbox--all-states",
   "components-radiogroup--default",
   "components-chip--time-slots",
+  "components-calendar--booking",
 ];
 
 for (const id of STORIES) {
