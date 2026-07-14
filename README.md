@@ -16,7 +16,7 @@ Implements the "Establish the design system foundation" epic (**complete —
 
 The design system is **brand-agnostic / re-themeable**, modeled on the reference brand **Alta Vibración** (not baked in). Source of truth is the `UI-Exercise` Figma file; the highest-leverage reference is a **Claude Design** handoff bundle (token CSS, component specimen cards, clickable UI kits) — the component↔Figma parity ([`ui/docs/figma-parity.md`](./ui/docs/figma-parity.md)) was audited from it. The live workspace and sync direction are documented in [`CLAUDE.md`](./CLAUDE.md) ("Design-side twin") and [`brand/README.md`](./brand/README.md).
 
-**Re-theming is proven.** Storybook's `Foundations/Theming` story applies an invented _second_ brand purely through **semantic-role overrides** under a `.theme-*` scope — no component or token edits ([PR #7](https://github.com/oscar-ospina/saas-packages/pull/7)). It confirmed the DS re-skins cleanly, and surfaced the one gap: **Button** reaches raw palette tokens (`text-orange-*`) directly, so a role-only theme leaves it warm — a tracked follow-up.
+**Re-theming is proven.** Storybook's `Foundations/Theming` story applies an invented _second_ brand purely through **semantic-role overrides** under a `.theme-*` scope — no component or token edits ([PR #7](https://github.com/oscar-ospina/saas-packages/pull/7)). The one gap it surfaced — Button reaching raw palette tokens directly — is closed: Button now styles through the semantic emphasis/link/hover roles (`--color-emphasis`, `--color-link`, `--color-primary-hover`, `--color-border-strong`), so a role-only theme is a complete re-skin.
 
 ## Quick start
 

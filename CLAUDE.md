@@ -48,7 +48,7 @@ The Claude Design workspace **"AltaVibración Design System"** (claude.ai/design
 
 ### Components
 
-Each primitive in `ui/src/components/` is one `.tsx` (cva variants, `radix-ui`, `cn()` from `lib/cn`) + sibling `.test.tsx` + `.stories.tsx`, re-exported from `src/index.ts`. Known gap: Button reaches raw palette tokens (`text-orange-*`) directly, so role-only themes miss it.
+Each primitive in `ui/src/components/` is one `.tsx` (cva variants, `radix-ui`, `cn()` from `lib/cn`) + sibling `.test.tsx` + `.stories.tsx`, re-exported from `src/index.ts`. Components style through **semantic roles only** — never raw ramp tokens (`text-orange-*` etc.), or `.theme-*` re-skins miss them; Button's emphasis/link/hover roles exist exactly for this.
 
 ## Workflow
 
