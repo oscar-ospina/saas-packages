@@ -1,22 +1,22 @@
 # saas-packages
 
-Monorepo for the SaaS product's shared, code-shipped packages. A polyrepo
-sibling of [`saas-planner`](https://github.com/oscar-ospina/saas-planner)
-(planning) and the future product repos (`web`, `api`, …).
+Monorepo for the SaaS product's shared, code-shipped packages — a polyrepo
+sibling of the future product repos (`web`, `api`, …). Planning happens in this
+repo's issues and PRs.
 
 | Workspace     | Package            | Description                                                                                          |
 | ------------- | ------------------ | ---------------------------------------------------------------------------------------------------- |
 | [`ui/`](./ui) | [`@saas/ui`](./ui) | Design-system component library — Tailwind v4 + Radix + shadcn sources, with Figma-generated tokens. |
 | `examples/*`  | _(private)_        | Example consumer apps that import `@saas/ui` end to end.                                             |
 
-Implements [epic #5 — Establish the design system foundation](https://github.com/oscar-ospina/saas-planner/issues/5)
-(**complete — 2026-06-04**) and its two ADRs ([stack](https://github.com/oscar-ospina/saas-planner/blob/main/docs/superpowers/specs/2026-05-27-ds-stack-decision.md),
-[token pipeline](https://github.com/oscar-ospina/saas-planner/blob/main/docs/superpowers/specs/2026-05-27-ds-tokens-pipeline.md)).
+Implements the "Establish the design system foundation" epic (**complete —
+2026-06-04**) and its two ADRs (DS stack, 2026-05-27; token pipeline,
+2026-05-27 — authored in the retired `saas-planner` repo).
 `@saas/ui` is **published to npm** ([`@saas/ui`](https://www.npmjs.com/package/@saas/ui)) — consumers just `npm i @saas/ui`.
 
-The design system is **brand-agnostic / re-themeable**, modeled on the reference brand **Alta Vibración** (not baked in). Source of truth is the `UI-Exercise` Figma file; the highest-leverage reference is a **Claude Design** handoff bundle (token CSS, component specimen cards, clickable UI kits) — the component↔Figma parity ([`ui/docs/figma-parity.md`](./ui/docs/figma-parity.md)) was audited from it. See [planner CLAUDE.md → Claude Design access](https://github.com/oscar-ospina/saas-planner/blob/main/CLAUDE.md#claude-design-access) for how to fetch it.
+The design system is **brand-agnostic / re-themeable**, modeled on the reference brand **Alta Vibración** (not baked in). Source of truth is the `UI-Exercise` Figma file; the highest-leverage reference is a **Claude Design** handoff bundle (token CSS, component specimen cards, clickable UI kits) — the component↔Figma parity ([`ui/docs/figma-parity.md`](./ui/docs/figma-parity.md)) was audited from it. The live workspace and sync direction are documented in [`CLAUDE.md`](./CLAUDE.md) ("Design-side twin") and [`brand/README.md`](./brand/README.md).
 
-**Re-theming is proven.** Storybook's `Foundations/Theming` story applies an invented _second_ brand purely through **semantic-role overrides** under a `.theme-*` scope — no component or token edits ([PR #7](https://github.com/oscar-ospina/saas-packages/pull/7)). It confirmed the DS re-skins cleanly, and surfaced the one gap: **Button** reaches raw palette tokens (`text-orange-*`) directly, so a role-only theme leaves it warm — tracked in [saas-planner#27](https://github.com/oscar-ospina/saas-planner/issues/27).
+**Re-theming is proven.** Storybook's `Foundations/Theming` story applies an invented _second_ brand purely through **semantic-role overrides** under a `.theme-*` scope — no component or token edits ([PR #7](https://github.com/oscar-ospina/saas-packages/pull/7)). It confirmed the DS re-skins cleanly, and surfaced the one gap: **Button** reaches raw palette tokens (`text-orange-*`) directly, so a role-only theme leaves it warm — a tracked follow-up.
 
 ## Quick start
 
@@ -69,6 +69,7 @@ saas-packages/
   (the pnpm/yarn `workspace:*` protocol is not supported by npm).
 - **Releases:** [changesets](https://github.com/changesets/changesets), semver,
   per-package `CHANGELOG.md`. Add one with `npx changeset`.
-- **Commits:** `feat: <summary> (oscar-ospina/saas-planner#<story>)`.
+- **Commits:** conventional prefixes (`feat:`, `fix:`, `docs:`, `chore:`),
+  imperative summary; scope like `feat(ui):` when it helps.
 - See [`CONTRIBUTING.md`](./CONTRIBUTING.md) for the design-token workflow and
   the Figma style-naming contract.

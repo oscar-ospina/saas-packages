@@ -1,9 +1,9 @@
 # Contributing to `saas-packages`
 
 This monorepo holds the shared design system for the SaaS product. The first
-package is [`@saas/ui`](./ui) (`ui/`). Planning, epics, and stories live in the
-sibling [`saas-planner`](https://github.com/oscar-ospina/saas-planner) repo —
-reference the relevant story number in commits and PRs.
+package is [`@saas/ui`](./ui) (`ui/`). Planning happens in this repo's issues
+and PRs. Day-to-day workflow (including agent guidance) is in
+[`CLAUDE.md`](./CLAUDE.md).
 
 ## Prerequisites
 
@@ -41,7 +41,8 @@ Color and typography come from two different places in the file:
 > emitted an unrelated slate/M3 set). The Figma Variables registry isn't readable
 > via the MCP (`boundVariables=0`), so the frame is the accessible source.
 > `build-palette.mjs` asserts the frame's section structure and fails loudly if it
-> drifts. (See the [token-pipeline ADR](https://github.com/oscar-ospina/saas-planner/blob/main/docs/superpowers/specs/2026-05-27-ds-tokens-pipeline.md).)
+> drifts. (Per the token-pipeline ADR, 2026-05-27 — authored in the retired
+> `saas-planner` repo.)
 
 The token stylesheet is split into three files:
 
@@ -116,7 +117,8 @@ the style name. To get clean tokens, name Figma styles like this:
 
 ## Commits & releases
 
-- Commit style: `feat: <summary> (oscar-ospina/saas-planner#<story>)`.
+- Commit style: conventional prefixes (`feat:`, `fix:`, `docs:`, `chore:`),
+  imperative summary; scope like `feat(ui):` when it helps.
 - Public, user-facing changes need a changeset: `npx changeset` then commit the
   generated file. Internal-only changes (CI, docs) can skip it.
 - `@saas/ui` is versioned with semver via [changesets](https://github.com/changesets/changesets);

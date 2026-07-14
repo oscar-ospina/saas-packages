@@ -48,10 +48,26 @@ The Claude Design workspace **"AltaVibración Design System"** (claude.ai/design
 
 ### Components
 
-Each primitive in `ui/src/components/` is one `.tsx` (cva variants, `radix-ui`, `cn()` from `lib/cn`) + sibling `.test.tsx` + `.stories.tsx`, re-exported from `src/index.ts`. Known gap: Button reaches raw palette tokens (`text-orange-*`) directly, so role-only themes miss it (saas-planner#27).
+Each primitive in `ui/src/components/` is one `.tsx` (cva variants, `radix-ui`, `cn()` from `lib/cn`) + sibling `.test.tsx` + `.stories.tsx`, re-exported from `src/index.ts`. Known gap: Button reaches raw palette tokens (`text-orange-*`) directly, so role-only themes miss it.
+
+## Workflow
+
+Every change: branch from `main` → PR → squash merge. Before pushing, run what CI runs: `check:tokens`, lint, build, typecheck, test — plus VR (`test:visual`) when anything visual moved. Then, by change type:
+
+- **Tokens**: never edit `tokens.css`/`tokens.json` by hand — regenerate (CONTRIBUTING.md "Refreshing tokens from Figma") or add to `semantic.css` per the write rules above. If values changed: contrast audit (`ui/docs/accessibility.md`) + VR baselines.
+- **Components**: source + `.test.tsx` + `.stories.tsx` together; intentional visual changes need `test:visual:update` (Linux/Playwright container only) and a `figma-parity.md` entry if the change touches audited parity.
+- **Design sync** (workspace → code): fetch via DesignSync in the **main session** — the tool is session-scoped and invisible to subagents. Tokens → `semantic.css`; assets → `brand/`; document gaps in `brand/README.md`.
+- **Release**: user-facing `@saas/ui` changes need a changeset (`npx changeset`); internal-only (CI, docs) skip it.
+- **DOCs**: always update the documentation before finishing the work.
+
+### When to use subagents
+
+This repo is small (~10 components) — read files directly by default; a subagent that re-discovers the token pipeline wastes more than it saves.
+
+- **Use subagents for**: parallel per-component sweeps (audits/migrations across all primitives at once); digesting bulky output you only need conclusions from (Playwright/Storybook build logs, VR diff triage); web research. Give each agent the write rules above verbatim — they can't see this file's context otherwise.
+- **Never delegate to subagents**: DesignSync calls (session-scoped tool — fetches fail there), edits to generated files, or VR baseline updates (environment-sensitive).
+- **Background, not subagent**: long single commands (Storybook build, Playwright runs) — run them in background shell mode instead.
 
 ## Conventions
 
-- Planning lives in the sibling `saas-planner` repo; commits reference stories: `feat: <summary> (oscar-ospina/saas-planner#<story>)`.
-- User-facing `@saas/ui` changes need a changeset (`npx changeset`); internal-only changes (CI, docs) skip it.
-- Dark mode is deferred and has **no Figma source** — don't invent a palette; see figma-parity.md for the two sourcing options.
+- Commits: conventional prefixes (`feat:`, `fix:`, `docs:`, `chore:`), imperative summary; scope like `feat(ui):` when it helps.

@@ -130,10 +130,9 @@ snapshot. The cached `tokens/figma-all-palettes.yaml` is light-only, and the liv
 `UI-Exercise` file has no `Dark/*` swatches (confirmed 2026-06-04). So the real blocker was
 never the Figma rate limit — the source doesn't exist.
 
-Dark mode is **deferred to a future theming epic** (tracked in
-[saas-planner #13](https://github.com/oscar-ospina/saas-planner/issues/13), unlinked from
-epic #5). When revisited, first decide the **source** — a design/product call, not a
-rate-limit issue:
+Dark mode is **deferred to a future theming epic** (originally tracked in the
+retired `saas-planner` repo). When revisited, first decide the **source** — a
+design/product call, not a rate-limit issue:
 
 1. **Add `Dark/*` swatches to Figma** → extract faithfully via `scripts/build-palette.mjs`
    (keeps Figma as the single source of truth); or
