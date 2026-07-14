@@ -105,11 +105,10 @@ the style name. To get clean tokens, name Figma styles like this:
 - **No spacing scale in Figma** — gaps/paddings are ad-hoc (no named ramp), so
   `@saas/ui` uses Tailwind's default 4px spacing. Radius is anchored to the
   Button's 8px corner (`--radius-lg`). See [`ui/docs/figma-parity.md`](./ui/docs/figma-parity.md).
-- **Dark mode** deferred — **there is no dark palette in Figma** (verified
-  2026-06-04; an earlier version of this note claimed one existed at
-  `_Swatch/Light and Dark` — that was wrong). First decide the source (design it
-  in Figma vs. derive it in code), then do the `@theme inline` + `.dark{}`
-  restructure and a dark-surface contrast audit. See
+- **Dark mode** — **out of scope** (removed from the roadmap 2026-07-13; the DS
+  is light-only). Context: there is no dark palette in Figma (verified
+  2026-06-04; an earlier note claiming `_Swatch/Light and Dark` existed was
+  wrong). Don't invent a palette or add a `.dark` layer. See
   [`ui/docs/figma-parity.md`](./ui/docs/figma-parity.md).
 - **Component parity:** Button (full Type×State×Size matrix), Input, Field,
   Select, Card, and Badge are audited; Avatar/Dialog/Toast/Label have no Figma

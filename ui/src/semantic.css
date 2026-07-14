@@ -23,7 +23,8 @@
  * baselines assert self-consistency of THESE tokens, not component fidelity —
  * epic #5's "Component ↔ Figma parity" criterion stays open.
  *
- * Dark mode is deferred, so we map directly in `@theme` (no `.dark` layer yet).
+ * Dark mode is out of scope (light-only DS), so we map directly in `@theme`
+ * (no `.dark` layer).
  * Contrast for every pair is audited in docs/accessibility.md.
  */
 @theme {
