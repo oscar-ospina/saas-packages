@@ -1,9 +1,9 @@
 # Contributing to `saas-packages`
 
 This monorepo holds the shared design system for the SaaS product. The first
-package is [`@saas/ui`](./ui) (`ui/`). Planning, epics, and stories live in the
-sibling [`saas-planner`](https://github.com/oscar-ospina/saas-planner) repo —
-reference the relevant story number in commits and PRs.
+package is [`@saas/ui`](./ui) (`ui/`). Planning happens in this repo's issues
+and PRs. Day-to-day workflow (including agent guidance) is in
+[`CLAUDE.md`](./CLAUDE.md).
 
 ## Prerequisites
 
@@ -41,16 +41,20 @@ Color and typography come from two different places in the file:
 > emitted an unrelated slate/M3 set). The Figma Variables registry isn't readable
 > via the MCP (`boundVariables=0`), so the frame is the accessible source.
 > `build-palette.mjs` asserts the frame's section structure and fails loudly if it
-> drifts. (See the [token-pipeline ADR](https://github.com/oscar-ospina/saas-planner/blob/main/docs/superpowers/specs/2026-05-27-ds-tokens-pipeline.md).)
+> drifts. (Per the token-pipeline ADR, 2026-05-27 — authored in the retired
+> `saas-planner` repo.)
 
 The token stylesheet is split into three files:
 
 - **`ui/src/tokens.css`** — generated Figma primitives (`--color-neutral-*`,
   `--color-orange-*`, `--color-violet-*`, `--color-semantic-*`, `--text-*`,
   `--font-*`). **Do not edit by hand.**
-- **`ui/src/semantic.css`** — the semantic layer (`--color-primary`,
-  `--color-border`, `--radius-*`, `--font-sans`) mapping shadcn roles to those
-  Figma tokens. Edit here to change a role mapping; keep it contrast-audited. See
+- **`ui/src/semantic.css`** — the hand-authored layer: the semantic role mapping
+  (`--color-primary`, `--color-border`, `--radius-*`, `--font-sans`) plus the
+  "Brand extensions" section. Any token that is **not** a Figma Variable (extended
+  radii, brand shadows/gradients, `--font-ui`, anything synced from the Claude
+  Design workspace) goes here — never into `tokens.json`, which the generators
+  above rewrite. Edit here to change a role mapping; keep it contrast-audited. See
   [`ui/docs/figma-parity.md`](./ui/docs/figma-parity.md) +
   [`ui/docs/accessibility.md`](./ui/docs/accessibility.md).
 - **`ui/src/theme.css`** — the entry consumers import; it `@import`s
@@ -101,16 +105,20 @@ the style name. To get clean tokens, name Figma styles like this:
 - **No spacing scale in Figma** — gaps/paddings are ad-hoc (no named ramp), so
   `@saas/ui` uses Tailwind's default 4px spacing. Radius is anchored to the
   Button's 8px corner (`--radius-lg`). See [`ui/docs/figma-parity.md`](./ui/docs/figma-parity.md).
-- **Dark mode** not implemented yet (next): a dark palette exists in Figma's
-  `_Swatch/Light and Dark`; it needs the `@theme inline` + `.dark{}` restructure,
-  a faithful dark-palette extraction, and a dark-surface contrast audit.
-- **Component parity:** only the Button is aligned to its Figma component matrix
-  (Type×State×Size); the other primitives inherit the correct tokens but aren't
-  pixel-aligned to their Figma components yet.
+- **Dark mode** deferred — **there is no dark palette in Figma** (verified
+  2026-06-04; an earlier version of this note claimed one existed at
+  `_Swatch/Light and Dark` — that was wrong). First decide the source (design it
+  in Figma vs. derive it in code), then do the `@theme inline` + `.dark{}`
+  restructure and a dark-surface contrast audit. See
+  [`ui/docs/figma-parity.md`](./ui/docs/figma-parity.md).
+- **Component parity:** Button (full Type×State×Size matrix), Input, Field,
+  Select, Card, and Badge are audited; Avatar/Dialog/Toast/Label have no Figma
+  specimen. Audit state + divergences: [`ui/docs/figma-parity.md`](./ui/docs/figma-parity.md).
 
 ## Commits & releases
 
-- Commit style: `feat: <summary> (oscar-ospina/saas-planner#<story>)`.
+- Commit style: conventional prefixes (`feat:`, `fix:`, `docs:`, `chore:`),
+  imperative summary; scope like `feat(ui):` when it helps.
 - Public, user-facing changes need a changeset: `npx changeset` then commit the
   generated file. Internal-only changes (CI, docs) can skip it.
 - `@saas/ui` is versioned with semver via [changesets](https://github.com/changesets/changesets);
