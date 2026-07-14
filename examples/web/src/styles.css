@@ -1,0 +1,23 @@
+/* Consumer wiring for @saas/ui (same recipe as examples/playground). */
+@import "tailwindcss";
+@import "@saas/ui/theme.css";
+@source "../../../node_modules/@saas/ui";
+
+body {
+  @apply bg-background text-foreground antialiased;
+}
+
+/* Screen-transition from the design kit (ui_kits/web app.css .fade-in). */
+@utility fade-in {
+  animation: fade-in-up 0.35s ease;
+}
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
