@@ -12,6 +12,31 @@ Color is extracted from the "All palettes" frame (`scripts/lib/figma-palette-fra
 for the contrast audit. Base/Primary→orange, Base/Secondary→violet (brand), Neutrals,
 Semantic status colors are all faithful.
 
+## Brand extensions — from the Claude Design workspace (not Figma)
+
+The Claude Design workspace ("AltaVibración Design System",
+`claude.ai/design/p/6e43ffb4-24c4-4461-a4aa-81ee1ce59892`) evolved the system beyond
+what the Figma Variables define. Those additions were synced back into the
+**hand-authored** layer (`semantic.css`, "Brand extensions" section) — NOT into
+`tokens.json`/`tokens.css`, which `build-palette.mjs`/`build-tokens.mjs` regenerate
+from Figma and would silently drop them:
+
+- extended radii `--radius-2xl` (16px, cards) and `--radius-3xl` (32px, hero photo cards);
+- warm shadows `--shadow-card` / `--shadow-pop` (`rgba(51,16,10,…)`);
+- brand gradients `--grad-primary` (logo mark) and `--grad-swoosh` (violet→orange);
+- `--font-roboto` / `--font-ui` (Roboto-first UI surfaces; files in `brand/fonts/`).
+
+The workspace also defines a semantic type ramp as `.t-*` classes; it is **not
+duplicated here** because every entry maps 1:1 onto a utility already generated from
+the `--text-*` tokens:
+
+| Workspace class                                   | `@saas/ui` utility                                                                    |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `.t-h1` / `.t-h2` / `.t-h3`                       | `text-header-h1-bold` / `text-header-h2-semibold` / `text-header-h3-medium`           |
+| `.t-title-lg` / `.t-title-md` / `.t-title-sm`     | `text-title-title-large` / `text-title-titel-medium` (sic) / `text-title-title-small` |
+| `.t-b0`…`.t-b5` (+`-bold`)                        | `text-body-b0-regular`…`text-body-b5-regular` (+`…-semibold`)                         |
+| `.t-lead` / `.t-subtle` / `.t-detail` / `.t-code` | `text-lead` / `text-subtle-medium` / `text-detail` / `text-inline-code`               |
+
 ## Components
 
 ### Button — pilot, partial parity ✅/⚠️
@@ -35,7 +60,7 @@ diff. Hover/focus are approximated, not pixel-matched.
 
 > **Source for the audits below (2026-06-04):** the Figma API was rate-limited (429), so these
 > were aligned to the **component specimen cards** (`preview/comp-*.html`) from the **Claude Design**
-> handoff of the *same* `UI-Exercise` file — the design tool's faithful reconstruction of the Figma
+> handoff of the _same_ `UI-Exercise` file — the design tool's faithful reconstruction of the Figma
 > controls. All values are bound to **semantic tokens** (the DS stays brand-agnostic / re-themeable);
 > AA is preserved over pixel-fidelity where the two conflict.
 
@@ -43,31 +68,31 @@ diff. Hover/focus are approximated, not pixel-matched.
 
 Aligned to the form-control specimen (`comp-inputs.html`).
 
-| Figma control (specimen)               | → @saas/ui                             | Notes                                                                                            |
-| -------------------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| Text field — 44px tall, 8px radius     | `Input` `h-11 rounded-lg px-4`         | was `h-9 rounded-md px-3`; now matches the 44 / 8px-radius / 16px-pad spec                        |
-| Select / dropdown (field + chevron)    | `SelectTrigger` `h-11 rounded-lg px-4` | default size matched to Input; `sm` → `h-9`                                                       |
-| Label + control + hint/error           | `Field`                                | wraps `Input`; inherits the above + the a11y wiring (label / aria / required)                     |
-| Focus                                  | `focus-visible:ring-ring/50`           | **divergence (a11y):** specimen uses orange-400 @16%; we keep the stronger orange-500 @50% ring   |
-| Resting border                         | `border-input` (neutral-200)           | specimen uses `rgba(39,47,78,.16)`; neutral-200 is slightly higher-contrast — kept                |
+| Figma control (specimen)            | → @saas/ui                             | Notes                                                                                           |
+| ----------------------------------- | -------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| Text field — 44px tall, 8px radius  | `Input` `h-11 rounded-lg px-4`         | was `h-9 rounded-md px-3`; now matches the 44 / 8px-radius / 16px-pad spec                      |
+| Select / dropdown (field + chevron) | `SelectTrigger` `h-11 rounded-lg px-4` | default size matched to Input; `sm` → `h-9`                                                     |
+| Label + control + hint/error        | `Field`                                | wraps `Input`; inherits the above + the a11y wiring (label / aria / required)                   |
+| Focus                               | `focus-visible:ring-ring/50`           | **divergence (a11y):** specimen uses orange-400 @16%; we keep the stronger orange-500 @50% ring |
+| Resting border                      | `border-input` (neutral-200)           | specimen uses `rgba(39,47,78,.16)`; neutral-200 is slightly higher-contrast — kept              |
 
 ### Card — audited ✅ (2026-06-04)
 
 Aligned to `comp-cards.html`.
 
-| Figma card (specimen)        | → @saas/ui              | Notes                                                                                                  |
-| ---------------------------- | ----------------------- | ----------------------------------------------------------------------------------------------------- |
-| 16px radius                  | `Card` `rounded-2xl`    | was `rounded-xl` (12px) → now 16px                                                                     |
-| White fill + soft warm shadow | `bg-card shadow-sm`    | specimen shadow is warm (`0 2px 8px rgba(51,16,10,.08)`); we keep the token-neutral `shadow-sm` so a brand may override. No colored left-border. |
+| Figma card (specimen)         | → @saas/ui           | Notes                                                                                                                                            |
+| ----------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 16px radius                   | `Card` `rounded-2xl` | was `rounded-xl` (12px) → now 16px                                                                                                               |
+| White fill + soft warm shadow | `bg-card shadow-sm`  | specimen shadow is warm (`0 2px 8px rgba(51,16,10,.08)`); we keep the token-neutral `shadow-sm` so a brand may override. No colored left-border. |
 
 ### Badge — audited ✅ / ⚠️ (2026-06-04)
 
 Aligned to `comp-badges.html`.
 
-| Figma badge (specimen)            | → @saas/ui                          | Notes                              |
-| --------------------------------- | ----------------------------------- | ---------------------------------- |
-| Pill (full radius)                | `Badge` `rounded-full px-2.5`       | was `rounded-md` → now a pill      |
-| Solid primary / neutral / outline | `default` / `secondary` / `outline` | mapping unchanged                  |
+| Figma badge (specimen)            | → @saas/ui                          | Notes                         |
+| --------------------------------- | ----------------------------------- | ----------------------------- |
+| Pill (full radius)                | `Badge` `rounded-full px-2.5`       | was `rounded-md` → now a pill |
+| Solid primary / neutral / outline | `default` / `secondary` / `outline` | mapping unchanged             |
 
 **⚠️ Status tints deferred (AA).** The specimen also shows soft status badges (`*-light` bg + `*-base`
 text for Confirmada / Pendiente / Virtual / Cancelada). Measured against our WCAG AA gate, **3 of 4 fail
@@ -114,7 +139,7 @@ rate-limit issue:
    (keeps Figma as the single source of truth); or
 2. **Derive a dark palette in code** from the light tokens (systematic neutral/surface/text
    remap, shadcn/Radix-style) with `.dark{}` via `@custom-variant dark` + a real dark
-   contrast audit — ships without Figma, but it's a *designed-in-code* theme (no "faithful
+   contrast audit — ships without Figma, but it's a _designed-in-code_ theme (no "faithful
    extract").
 
 The structural work is the same either way (`semantic.css` → `@theme inline` + `.dark{}`,

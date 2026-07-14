@@ -80,6 +80,8 @@
   --radius-md: 0.375rem; /* 6px */
   --radius-lg: 0.5rem; /* 8px */
   --radius-xl: 0.75rem; /* 12px */
+  --radius-2xl: 1rem; /* 16px — cards */
+  --radius-3xl: 2rem; /* 32px — hero photo cards */
 
   /* Fonts — Figma uses Open Sans for Body and Archivo for Headers/Display.
      --font-sans drives Tailwind's default body font (so all primitives inherit
@@ -88,6 +90,29 @@
      and Storybook self-host them via @fontsource). */
   --font-sans: var(--font-open-sans);
   --font-display: var(--font-archivo);
+
+  /* ── Brand extensions — AltaVibración design workspace ──────────────────
+     Authored in the Claude Design workspace (claude.ai/design project
+     6e43ffb4-24c4-4461-a4aa-81ee1ce59892), NOT Figma Variables — so they live
+     in this hand-authored layer, same precedent as the radius scale above
+     (build-palette.mjs / build-tokens.mjs would drop them from tokens.json). */
+
+  /* Warm brand shadows (rgba(51,16,10,…), never harsh black) → shadow-card /
+     shadow-pop utilities. The raw Figma effect token (--shadow-shadow-graphics)
+     stays in tokens.css. */
+  --shadow-card: 0px 2px 8px 0px rgba(51, 16, 10, 0.08);
+  --shadow-pop: 0px 8px 24px 0px rgba(51, 16, 10, 0.15);
+
+  /* Brand gradients — plain vars (no Tailwind utility namespace); use as
+     bg-[image:var(--grad-primary)] / bg-[image:var(--grad-swoosh)]. */
+  --grad-primary: linear-gradient(180deg, #f09942 9%, #f37d3e 81%); /* logo mark */
+  --grad-swoosh: linear-gradient(90deg, #7f5af8 0%, #f0601f 55%, #f37d3e 100%);
+
+  /* UI surfaces (dashboards / docs / tables) — Roboto-first, self-hosted by
+     the consumer (brand/fonts/ carries the files; the library only declares
+     the families, as with --font-sans/--font-display above). */
+  --font-roboto: "Roboto", system-ui, sans-serif;
+  --font-ui: "Roboto", "Inter", system-ui, sans-serif;
 }
 
 /* Minimal base layer so components that use a bare `border` pick up the token
