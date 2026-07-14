@@ -15,6 +15,9 @@ const STORIES = [
   "components-select--open",
   "components-dialog--open",
   "components-toast--destructive",
+  "components-checkbox--all-states",
+  "components-radiogroup--default",
+  "components-chip--time-slots",
 ];
 
 for (const id of STORIES) {
