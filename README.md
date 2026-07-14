@@ -16,7 +16,7 @@ Implements [epic #5 — Establish the design system foundation](https://github.c
 
 The design system is **brand-agnostic / re-themeable**, modeled on the reference brand **Alta Vibración** (not baked in). Source of truth is the `UI-Exercise` Figma file; the highest-leverage reference is a **Claude Design** handoff bundle (token CSS, component specimen cards, clickable UI kits) — the component↔Figma parity ([`ui/docs/figma-parity.md`](./ui/docs/figma-parity.md)) was audited from it. See [planner CLAUDE.md → Claude Design access](https://github.com/oscar-ospina/saas-planner/blob/main/CLAUDE.md#claude-design-access) for how to fetch it.
 
-**Re-theming is proven.** Storybook's `Foundations/Theming` story applies an invented *second* brand purely through **semantic-role overrides** under a `.theme-*` scope — no component or token edits ([PR #7](https://github.com/oscar-ospina/saas-packages/pull/7)). It confirmed the DS re-skins cleanly, and surfaced the one gap: **Button** reaches raw palette tokens (`text-orange-*`) directly, so a role-only theme leaves it warm — tracked in [saas-planner#27](https://github.com/oscar-ospina/saas-planner/issues/27).
+**Re-theming is proven.** Storybook's `Foundations/Theming` story applies an invented _second_ brand purely through **semantic-role overrides** under a `.theme-*` scope — no component or token edits ([PR #7](https://github.com/oscar-ospina/saas-packages/pull/7)). It confirmed the DS re-skins cleanly, and surfaced the one gap: **Button** reaches raw palette tokens (`text-orange-*`) directly, so a role-only theme leaves it warm — tracked in [saas-planner#27](https://github.com/oscar-ospina/saas-planner/issues/27).
 
 ## Quick start
 
@@ -57,6 +57,8 @@ saas-packages/
 │   ├── tokens/         #   DTCG tokens.json (Figma-generated source of truth)
 │   └── scripts/        #   token pipeline (Figma → DTCG → Tailwind v4 theme.css)
 ├── examples/           # private example consumer apps
+├── brand/              # Alta Vibración brand assets + fonts, synced from the
+│                       #   Claude Design workspace (see brand/README.md)
 ├── .changeset/         # semver + changelog (changesets)
 └── .github/workflows/  # CI + release
 ```
