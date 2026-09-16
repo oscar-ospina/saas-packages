@@ -44,7 +44,11 @@ Role mappings are contrast-audited (`ui/docs/accessibility.md`); AA wins over pi
 
 ### Design-side twin
 
-The Claude Design workspace **"AltaVibración Design System"** (claude.ai/design project `6e43ffb4-24c4-4461-a4aa-81ee1ce59892`) mirrors this repo and evolves the brand design-side. Syncs run **design → code**: new design-authored tokens land in `semantic.css`, assets in `brand/`. The DesignSync read tool caps files at 256 KiB — the raster photos listed in `brand/README.md` are still pending manual copy.
+The Claude Design workspace **"AltaVibración Design System"** (claude.ai/design project `6e43ffb4-24c4-4461-a4aa-81ee1ce59892`) mirrors this repo and evolves the brand design-side. Syncs run **design → code**: new design-authored tokens land in `semantic.css`, assets in `brand/`. The DesignSync read tool caps files at 256 KiB; larger assets are copied by hand and tracked in `brand/README.md`.
+
+### Decisions
+
+`docs/adr/` holds the two founding ADRs (DS stack; token export pipeline, both 2026-05-27), archived from the retired `saas-planner` repo. Planning and work items are this repo's own GitHub issues.
 
 ### Components
 
@@ -58,7 +62,7 @@ Every change: branch from `main` → PR → squash merge. Before pushing, run wh
 - **Components**: source + `.test.tsx` + `.stories.tsx` together; intentional visual changes need `test:visual:update` (Linux/Playwright container only) and a `figma-parity.md` entry if the change touches audited parity.
 - **Design sync** (workspace → code): fetch via DesignSync in the **main session** — the tool is session-scoped and invisible to subagents. Tokens → `semantic.css`; assets → `brand/`; document gaps in `brand/README.md`.
 - **Release**: user-facing `@saas/ui` changes need a changeset (`npx changeset`); internal-only (CI, docs) skip it.
-- **DOCs**: always update the documentation before finishing the work.
+- **Docs**: update `README.md` / `ui/docs/` / `brand/README.md` as part of the change, not after.
 
 ### When to use subagents
 
