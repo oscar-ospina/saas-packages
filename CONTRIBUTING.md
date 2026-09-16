@@ -41,8 +41,8 @@ Color and typography come from two different places in the file:
 > emitted an unrelated slate/M3 set). The Figma Variables registry isn't readable
 > via the MCP (`boundVariables=0`), so the frame is the accessible source.
 > `build-palette.mjs` asserts the frame's section structure and fails loudly if it
-> drifts. (Per the token-pipeline ADR, 2026-05-27 — authored in the retired
-> `saas-planner` repo.)
+> drifts. (Per the [token-pipeline ADR](./docs/adr/2026-05-27-ds-tokens-pipeline.md),
+> 2026-05-27.)
 
 The token stylesheet is split into three files:
 

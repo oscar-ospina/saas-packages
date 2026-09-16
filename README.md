@@ -10,8 +10,9 @@ repo's issues and PRs.
 | `examples/*`  | _(private)_        | Example consumer apps that import `@saas/ui` end to end.                                             |
 
 Implements the "Establish the design system foundation" epic (**complete —
-2026-06-04**) and its two ADRs (DS stack, 2026-05-27; token pipeline,
-2026-05-27 — authored in the retired `saas-planner` repo).
+2026-06-04**) and its two ADRs — [DS stack](./docs/adr/2026-05-27-ds-stack-decision.md) and
+[token pipeline](./docs/adr/2026-05-27-ds-tokens-pipeline.md), both 2026-05-27,
+archived in `docs/adr/` from the retired `saas-planner` repo.
 `@saas/ui` is **published to npm** ([`@saas/ui`](https://www.npmjs.com/package/@saas/ui)) — consumers just `npm i @saas/ui`.
 
 The design system is **brand-agnostic / re-themeable**, modeled on the reference brand **Alta Vibración** (not baked in). Source of truth is the `UI-Exercise` Figma file; the highest-leverage reference is a **Claude Design** handoff bundle (token CSS, component specimen cards, clickable UI kits) — the component↔Figma parity ([`ui/docs/figma-parity.md`](./ui/docs/figma-parity.md)) was audited from it. The live workspace and sync direction are documented in [`CLAUDE.md`](./CLAUDE.md) ("Design-side twin") and [`brand/README.md`](./brand/README.md).
